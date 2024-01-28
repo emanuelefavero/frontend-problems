@@ -15,3 +15,7 @@ Feel free to browse the solutions and explanations for each problem. You can clo
 ### JavaScript Questions
 
 - [A number sequence](./javascript/a-number-sequence.js)
+
+## License
+
+- [MIT](LICENSE.md)
