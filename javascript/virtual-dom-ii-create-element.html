@@ -7,6 +7,16 @@
   </head>
   <body>
     <script>
+      // Virtual DOM II - Create Element
+      // @see https://bigfrontend.dev/problem/virtual-dom-II-createElement
+
+      /**
+       * @param {string} type
+       * @param {object} props
+       * @param {any[]} children
+       * @return {object}
+       */
+
       // Implement createElement
       function createElement(type, props, ...children) {
         return {
@@ -17,6 +27,11 @@
           },
         }
       }
+
+      /**
+       * @param {object} json
+       * @return {HTMLElement|Text}
+       */
 
       // Implement render function
       function render(json) {
