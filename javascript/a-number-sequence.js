@@ -50,6 +50,7 @@ function getNthNum(n) {
 
 // -------------------------
 // TESTS
+
 console.log(getNthNum(1)) // '1'
 console.log(getNthNum(2)) // '11'
 console.log(getNthNum(3)) // '21'
