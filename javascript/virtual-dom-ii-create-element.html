@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Implement createElement
+      function createElement(type, props, ...children) {
+        return {
+          type,
+          props: {
+            ...props,
+            children,
+          },
+        }
+      }
+
+      // Implement render function
+      function render(json) {
+        // If json is a string, return a text node
+        if (typeof json === 'string') return document.createTextNode(json)
+
+        // Otherwise it's an object, so destructure it and create a node
+        const {
+          type,
+          props: { children, ...attrs },
+        } = json
+        const node = document.createElement(type)
+
+        // Set attributes to node
+        for (let [attr, value] of Object.entries(attrs)) node[attr] = value
+
+        // Append children to node
+        const childrenArray = Array.isArray(children) ? children : [children]
+        for (let child of childrenArray) node.append(render(child))
+
+        // Return node
+        return node
+      }
+
+      // ------------------------------
+      // TESTS
+
+      const json = {
+        type: 'div',
+        props: {
+          className: 'container',
+          children: [
+            {
+              type: 'h1',
+              props: {
+                children: 'Hello World',
+              },
+            },
+          ],
+        },
+      }
+
+      const node = render(json)
+      console.log(node) // <div class="container"><h1>Hello World</h1></div>
+      document.body.append(node)
+    </script>
+  </body>
+</html>
