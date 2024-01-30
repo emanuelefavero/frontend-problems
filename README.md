@@ -16,6 +16,7 @@ Feel free to browse the solutions and explanations for each problem. You can clo
 
 - [A number sequence](./javascript/a-number-sequence.js)
 - [Implement classNames](./javascript/implement-classnames.js)
+- [Virtual DOM II - createElement](./javascript/virtual-dom-ii-create-element.html)
 
 ## License
 
