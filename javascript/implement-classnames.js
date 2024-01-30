@@ -1,7 +1,13 @@
-// * Implement classNames
+/**
+ * * Implement classNames
+ *
+ * classNames() accepts arbitrary arguments, filter out the falsy values, and generate the final className string.
+ *
+ * @param  {...any} args
+ * @returns {string}
+ */
 
-// classNames() accepts arbitrary arguments, filter out the falsy values, and generate the final className string.
-
+// O(n) time | O(n) space
 function classNames(...args) {
   let result = ''
 
