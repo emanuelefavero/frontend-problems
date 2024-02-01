@@ -1,7 +1,13 @@
-// * Remove Duplicates from an Array
+/**
+ * * Remove Duplicates from an Array
+ *
+ * @param {number[]} array
+ * @return {number[]}
+ */
 
 // TIP: In-place solution
 
+// O(n) time | O(n) space
 function removeDuplicates(array) {
   let hash = {}
 
@@ -21,6 +27,7 @@ function removeDuplicates(array) {
 
 // TIP: Built-in solution
 
+// O(n) time | O(n) space
 function removeDuplicates2(array) {
   return [...new Set(array)]
 }
@@ -28,6 +35,7 @@ function removeDuplicates2(array) {
 // -----------------------------
 // SOLUTION 3
 
+// O(n) time | O(n) space
 function removeDuplicates3(array) {
   let result = []
 
