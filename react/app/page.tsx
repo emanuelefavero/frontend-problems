@@ -2,9 +2,14 @@ import Link from 'next/link'
 
 export default function Home() {
   return (
-    <main>
+    <>
       <h1>Home</h1>
-      <Link href='/use-timeout'>useTimeout</Link>
-    </main>
+
+      <ul>
+        <li>
+          <Link href='/use-timeout'>useTimeout</Link>
+        </li>
+      </ul>
+    </>
   )
 }

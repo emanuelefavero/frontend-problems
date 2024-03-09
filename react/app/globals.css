@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+main {
+  @apply p-2;
+}
+
 h1 {
-  @apply text-4xl font-bold;
+  @apply text-4xl font-bold text-slate-800 mb-2;
+}
+
+a {
+  @apply text-violet-600;
+}
+
+li {
+  @apply mb-2 ml-4;
 }
