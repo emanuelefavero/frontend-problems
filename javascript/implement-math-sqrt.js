@@ -4,6 +4,12 @@
 
 // Can your write your own mySqrt() ? You should return the integer part only, truncating the fraction part.
 
+/**
+ * @param {number} x
+ * @returns {number}
+ */
+
+// O(log n) time | O(1) space
 function mySqrt(x) {
   if (typeof x !== 'number' || x < 0 || isNaN(x)) return NaN
   if (x === 0 || x === 1) return x
