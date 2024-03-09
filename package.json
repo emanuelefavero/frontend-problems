@@ -1,0 +1,12 @@
+{
+  "name": "frontend-problems",
+  "version": "1.0.0",
+  "description": "This repo contains a list of frontend problems that I have encountered and solved",
+  "main": "index.js",
+  "scripts": {
+    "react": "npm run dev --prefix react"
+  },
+  "keywords": [],
+  "author": "Emanuele Favero",
+  "license": "MIT"
+}
