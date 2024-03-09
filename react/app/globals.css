@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 main {
-  @apply p-2;
+  @apply p-4;
 }
 
 h1 {
-  @apply text-4xl font-bold text-slate-800 mb-2;
+  @apply text-4xl font-bold text-slate-800 mb-4;
 }
 
 a {
