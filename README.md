@@ -18,6 +18,7 @@ Feel free to browse the solutions and explanations for each problem. You can clo
 - [Implement classNames](./javascript/implement-classnames.js)
 - [Virtual DOM II - createElement](./javascript/virtual-dom-ii-create-element.html)
 - [Remove Duplicates From Array](./javascript/remove-duplicates-from-array.js)
+- [Implement Math.sqrt](./javascript/implement-math-sqrt.js)
 
 ## License
 
