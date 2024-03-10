@@ -20,6 +20,10 @@ Feel free to browse the solutions and explanations for each problem. You can clo
 - [Remove Duplicates From Array](./javascript/remove-duplicates-from-array.js)
 - [Implement Math.sqrt](./javascript/implement-math-sqrt.js)
 
+### React Questions
+
+- [useTimeout](./react/app/use-timeout/page.tsx)
+
 ## License
 
 - [MIT](LICENSE.md)

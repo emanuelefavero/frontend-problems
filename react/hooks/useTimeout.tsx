@@ -12,5 +12,3 @@ export default function useTimeout(callback: () => void, delay: number) {
     return () => clearTimeout(timeoutId)
   }, [delay]) // Only re-run if the delay changes
 }
-
-// TODO add react useTimeout link to README
