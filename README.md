@@ -23,6 +23,7 @@ Feel free to browse the solutions and explanations for each problem. You can clo
 ### React Questions
 
 - [useTimeout](./react/app/use-timeout/page.tsx)
+- [Counter](./react/app/counter/page.tsx)
 
 ## License
 
