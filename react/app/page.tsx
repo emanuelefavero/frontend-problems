@@ -15,6 +15,9 @@ export default function Home() {
         <li>
           <Link href='/use-is-first-render'>useIsFirstRender</Link>
         </li>
+        <li>
+          <Link href='/use-hover'>useHover</Link>
+        </li>
       </ul>
     </>
   )
