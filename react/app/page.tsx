@@ -12,6 +12,9 @@ export default function Home() {
         <li>
           <Link href='/counter'>Counter</Link>
         </li>
+        <li>
+          <Link href='/use-is-first-render'>useIsFirstRender</Link>
+        </li>
       </ul>
     </>
   )
