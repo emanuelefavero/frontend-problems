@@ -1,5 +1,6 @@
 'use client'
 
+import './page.css'
 import { useState } from 'react'
 
 interface ColorBoxProps {
@@ -10,14 +11,13 @@ interface ColorBoxProps {
 
 function ColorBox({ color, index, handleClick }: ColorBoxProps) {
   return (
-    <button
+    <div
       style={{
         backgroundColor: color,
-        width: '33px',
-        height: '33px',
       }}
       onClick={() => handleClick(color, index)}
-    ></button>
+      className={`button-grow w-8 h-8 cursor-pointer`}
+    ></div>
   )
 }
 
@@ -47,7 +47,7 @@ export default function Page() {
 
       <ul>
         {colors.map((color, index) => (
-          <li key={index}>
+          <li key={index} className='m-0 mb-2'>
             <ColorBox color={color} index={index} handleClick={handleClick} />
           </li>
         ))}
