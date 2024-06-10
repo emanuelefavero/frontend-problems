@@ -18,6 +18,9 @@ export default function Home() {
         <li>
           <Link href='/use-hover'>useHover</Link>
         </li>
+        <li>
+          <Link href='/color-boxes'>Color boxes</Link>
+        </li>
       </ul>
     </>
   )
