@@ -21,6 +21,9 @@ export default function Home() {
         <li>
           <Link href='/color-boxes'>Color boxes</Link>
         </li>
+        <li>
+          <Link href='/display-object-data'>Display object data</Link>
+        </li>
       </ul>
     </>
   )
