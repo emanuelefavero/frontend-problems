@@ -3,10 +3,20 @@ interface Props {
   age: number
 }
 
+interface ExtendedProps extends Props {
+  lastName: string
+}
+
 function ChildComponent(props: Props) {
+  const extendedProps: ExtendedProps = {
+    ...props,
+    lastName: 'Doe',
+  }
+  const { name, age, lastName } = extendedProps
+
   return (
     <h2>
-      {props.name} is {props.age}
+      {name} {lastName} is {age}
     </h2>
   )
 }
