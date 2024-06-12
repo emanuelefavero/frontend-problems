@@ -14,6 +14,7 @@ export default function Page() {
     <>
       <h1>Events</h1>
 
+      {/* onClick */}
       <h2 className='mb-2'>onClick</h2>
       <button
         onClick={() => setClicked(!clicked)}
@@ -22,8 +23,9 @@ export default function Page() {
         {clicked ? 'Clicked' : 'Click Me'}
       </button>
 
-      <hr className='my-4' />
+      <hr className='my-4 border-slate-500 border-opacity-25' />
 
+      {/* onChange */}
       <h2 className='mb-2'>onChange</h2>
       <input
         type='text'
@@ -35,7 +37,7 @@ export default function Page() {
       {/* TIP: \u00A0 adds a non breaking space to prevent content shifting */}
       <p className='min-h-6'>{inputValue || '\u00A0'}</p>
 
-      <hr className='my-4' />
+      <hr className='my-4 border-slate-500 border-opacity-25' />
     </>
   )
 }
