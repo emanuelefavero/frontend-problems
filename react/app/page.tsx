@@ -27,6 +27,9 @@ export default function Home() {
         <li>
           <Link href='/props-spread-operator'>Props Spread Operator</Link>
         </li>
+        <li>
+          <Link href='/date'>Date</Link>
+        </li>
       </ul>
     </>
   )
