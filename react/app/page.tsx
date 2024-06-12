@@ -30,6 +30,9 @@ export default function Home() {
         <li>
           <Link href='/date'>Date</Link>
         </li>
+        <li>
+          <Link href='/events'>Events</Link>
+        </li>
       </ul>
     </>
   )
