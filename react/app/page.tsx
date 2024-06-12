@@ -24,6 +24,9 @@ export default function Home() {
         <li>
           <Link href='/display-object-data'>Display object data</Link>
         </li>
+        <li>
+          <Link href='/props-spread-operator'>Props Spread Operator</Link>
+        </li>
       </ul>
     </>
   )
