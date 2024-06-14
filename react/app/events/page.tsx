@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 
 export default function Page() {
   // onClick
@@ -23,21 +23,11 @@ export default function Page() {
   // onFocus, onBlur
   const [focused, setFocused] = useState(false)
 
-  // onKeyDown, onKeyUp, onKeyPress
+  // onKeyDown, onKeyUp
   const [pressedKey, setPressedKey] = useState('')
-  const timeoutRef = useRef<number | null>(null)
 
   const handleKeyPressed = (e: React.KeyboardEvent<HTMLInputElement>) => {
     setPressedKey(e.key)
-
-    // Debounce the event
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current)
-    }
-
-    timeoutRef.current = window.setTimeout(() => {
-      setPressedKey('')
-    }, 200)
   }
 
   return (
@@ -108,7 +98,7 @@ export default function Page() {
 
       <hr className='my-4 border-slate-500 border-opacity-25' />
 
-      {/* onKeyDown, onKeyUp, onKeyPress */}
+      {/* onKeyDown, onKeyUp */}
       <h2 className='mb-2'>onKeyDown</h2>
       <input
         type='text'
@@ -122,7 +112,9 @@ export default function Page() {
         onKeyUp={handleKeyPressed}
       />
 
-      <p className='min-h-6 mt-2'>Last pressed key: {pressedKey || '\u00A0'}</p>
+      <p className='min-h-6 mt-2'>
+        <small>Last pressed key:</small> <code>{pressedKey || '\u00A0'}</code>
+      </p>
 
       <hr className='my-4 border-slate-500 border-opacity-25' />
     </>
