@@ -16,6 +16,9 @@ export default function Page() {
     alert('Form submitted')
   }
 
+  // onMouseEnter, onMouseLeave
+  const [entered, setEntered] = useState(false)
+
   return (
     <>
       <h1>Events</h1>
@@ -54,6 +57,19 @@ export default function Page() {
       </form>
 
       <hr className='my-4 border-slate-500 border-opacity-25' />
+
+      {/* onMouseEnter */}
+      {/* TIP: onMouseEnter and onMouseLeave are similar to onMouseOver and onMouseOut, but they don't bubble. This means that when the user hovers over their children, they do not fire an event. */}
+      <h2>onMouseEnter, onMouseLeave</h2>
+      <div
+        onMouseEnter={() => setEntered(true)}
+        onMouseLeave={() => setEntered(false)}
+        className={`w-20 h-20 flex justify-center items-center select-none rounded ${
+          entered ? 'bg-green-500' : 'bg-rose-500'
+        }`}
+      >
+        {entered ? 'Entered' : 'Enter'}
+      </div>
     </>
   )
 }
