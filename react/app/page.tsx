@@ -33,6 +33,9 @@ export default function Home() {
         <li>
           <Link href='/events'>Events</Link>
         </li>
+        <li>
+          <Link href='/draggable-element'>Draggable element</Link>
+        </li>
       </ul>
     </>
   )
