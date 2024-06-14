@@ -1,4 +1,5 @@
 'use client'
+
 import { useState } from 'react'
 
 export default function Page() {
@@ -21,6 +22,13 @@ export default function Page() {
 
   // onFocus, onBlur
   const [focused, setFocused] = useState(false)
+
+  // onKeyDown, onKeyUp, onKeyPress
+  const [pressedKey, setPressedKey] = useState('')
+
+  const handleKeyPressed = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    setPressedKey(e.key)
+  }
 
   return (
     <>
@@ -87,6 +95,26 @@ export default function Page() {
           focused ? 'placeholder-blue-400 text-blue-100 bg-blue-800' : ''
         }
       />
+
+      <hr className='my-4 border-slate-500 border-opacity-25' />
+
+      {/* onKeyDown, onKeyUp, onKeyPress */}
+      <h2 className='mb-2'>onKeyDown</h2>
+      <input
+        type='text'
+        placeholder='Press any key'
+        onKeyDown={handleKeyPressed}
+      />
+      <h2 className='mb-2 mt-2'>onKeyUp</h2>
+      <input
+        type='text'
+        placeholder='Press any key'
+        onKeyUp={handleKeyPressed}
+      />
+
+      <p className='min-h-6 mt-2'>{pressedKey || '\u00A0'}</p>
+
+      <hr className='my-4 border-slate-500 border-opacity-25' />
     </>
   )
 }
