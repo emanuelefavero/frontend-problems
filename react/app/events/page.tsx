@@ -19,6 +19,9 @@ export default function Page() {
   // onMouseEnter, onMouseLeave
   const [entered, setEntered] = useState(false)
 
+  // onFocus, onBlur
+  const [focused, setFocused] = useState(false)
+
   return (
     <>
       <h1>Events</h1>
@@ -60,7 +63,7 @@ export default function Page() {
 
       {/* onMouseEnter */}
       {/* TIP: onMouseEnter and onMouseLeave are similar to onMouseOver and onMouseOut, but they don't bubble. This means that when the user hovers over their children, they do not fire an event. */}
-      <h2>onMouseEnter, onMouseLeave</h2>
+      <h2 className='mb-2'>onMouseEnter, onMouseLeave</h2>
       <div
         onMouseEnter={() => setEntered(true)}
         onMouseLeave={() => setEntered(false)}
@@ -70,6 +73,20 @@ export default function Page() {
       >
         {entered ? 'Entered' : 'Enter'}
       </div>
+
+      <hr className='my-4 border-slate-500 border-opacity-25' />
+
+      {/* onFocus, onBlur */}
+      <h2 className='mb-2'>onFocus</h2>
+      <input
+        type='text'
+        placeholder={focused ? 'Focused' : 'Focus here'}
+        onFocus={() => setFocused(true)}
+        onBlur={() => setFocused(false)}
+        className={
+          focused ? 'placeholder-blue-400 text-blue-100 bg-blue-800' : ''
+        }
+      />
     </>
   )
 }
