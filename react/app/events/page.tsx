@@ -25,9 +25,14 @@ export default function Page() {
 
   // onKeyDown, onKeyUp
   const [pressedKey, setPressedKey] = useState('')
-
   const handleKeyPressed = (e: React.KeyboardEvent<HTMLInputElement>) => {
     setPressedKey(e.key)
+  }
+
+  // onDrag
+  const [dragBoxColor, setDragBoxColor] = useState(false)
+  const handleDrag = () => {
+    setDragBoxColor(!dragBoxColor)
   }
 
   return (
@@ -117,6 +122,32 @@ export default function Page() {
       </p>
 
       <hr className='my-4 border-slate-500 border-opacity-25' />
+
+      {/* onDrag, onDragStart */}
+      {/* TIP: onDrag will be called repeatedly when the element is dragged, while onDragStart will be called just one time after the element is dragged */}
+      <h2 className='mb-2 mt-2'>onDrag</h2>
+
+      <div
+        draggable
+        onDrag={handleDrag}
+        className={`${
+          dragBoxColor ? 'bg-amber-500' : 'bg-green-500'
+        } w-20 h-20 rounded flex justify-center items-center`}
+      >
+        Drag me
+      </div>
+
+      <h2 className='mb-2 mt-2'>onDragStart</h2>
+
+      <div
+        draggable
+        onDragStart={handleDrag}
+        className={`${
+          dragBoxColor ? 'bg-amber-500' : 'bg-green-500'
+        } w-20 h-20 rounded flex justify-center items-center`}
+      >
+        Drag me
+      </div>
     </>
   )
 }
