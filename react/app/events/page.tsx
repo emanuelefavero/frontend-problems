@@ -135,7 +135,7 @@ export default function Page() {
         onDrag={handleDrag}
         className={`${
           dragBoxColor ? 'bg-amber-500' : 'bg-green-500'
-        } w-20 h-20 rounded flex justify-center items-center`}
+        } w-20 h-20 rounded flex justify-center items-center cursor-grab`}
       >
         Drag me
       </div>
@@ -147,7 +147,7 @@ export default function Page() {
         onDragStart={handleDrag}
         className={`${
           dragBoxColor ? 'bg-amber-500' : 'bg-green-500'
-        } w-20 h-20 rounded flex justify-center items-center`}
+        } w-20 h-20 rounded flex justify-center items-center cursor-grab`}
       >
         Drag me
       </div>
@@ -159,7 +159,7 @@ export default function Page() {
         onDragEnd={handleDrag}
         className={`${
           dragBoxColor ? 'bg-amber-500' : 'bg-green-500'
-        } w-20 h-20 rounded flex justify-center items-center`}
+        } w-20 h-20 rounded flex justify-center items-center cursor-grab`}
       >
         Drag me
       </div>
