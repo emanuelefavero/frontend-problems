@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import DraggableBox from './DraggableBox'
 
 export default function Page() {
   // onClick
@@ -27,12 +28,6 @@ export default function Page() {
   const [pressedKey, setPressedKey] = useState('')
   const handleKeyPressed = (e: React.KeyboardEvent<HTMLInputElement>) => {
     setPressedKey(e.key)
-  }
-
-  // onDrag, onDragStart, onDragEnd
-  const [dragBoxColor, setDragBoxColor] = useState(false)
-  const handleDrag = () => {
-    setDragBoxColor(!dragBoxColor)
   }
 
   // onDragEnter
@@ -129,40 +124,13 @@ export default function Page() {
       {/* onDrag, onDragStart, onDragEnd */}
       {/* TIP: onDrag will be called repeatedly when the element is dragged, while onDragStart will be called just one time after the element is dragged */}
       <h2 className='mb-2 mt-2'>onDrag</h2>
-
-      <div
-        draggable
-        onDrag={handleDrag}
-        className={`${
-          dragBoxColor ? 'bg-amber-500' : 'bg-green-500'
-        } w-20 h-20 rounded flex justify-center items-center cursor-grab`}
-      >
-        Drag me
-      </div>
+      <DraggableBox eventType='onDrag' />
 
       <h2 className='mb-2 mt-2'>onDragStart</h2>
-
-      <div
-        draggable
-        onDragStart={handleDrag}
-        className={`${
-          dragBoxColor ? 'bg-amber-500' : 'bg-green-500'
-        } w-20 h-20 rounded flex justify-center items-center cursor-grab`}
-      >
-        Drag me
-      </div>
+      <DraggableBox eventType='onDragStart' />
 
       <h2 className='mb-2 mt-2'>onDragEnd</h2>
-
-      <div
-        draggable
-        onDragEnd={handleDrag}
-        className={`${
-          dragBoxColor ? 'bg-amber-500' : 'bg-green-500'
-        } w-20 h-20 rounded flex justify-center items-center cursor-grab`}
-      >
-        Drag me
-      </div>
+      <DraggableBox eventType='onDragEnd' />
 
       <hr className='my-4 border-slate-500 border-opacity-25' />
 
