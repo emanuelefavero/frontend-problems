@@ -132,7 +132,7 @@ export default function Page() {
 
       <hr className='my-4 border-slate-500 border-opacity-25' />
 
-      {/* onDragEnter, onDragLeave, onDragOver */}
+      {/* onDragEnter, onDragLeave, onDragOver, onDrop */}
       <h2 className='mb-2'>onDragEnter</h2>
       <DragAndDrop eventType='onDragEnter' />
 

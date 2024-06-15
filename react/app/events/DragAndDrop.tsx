@@ -3,7 +3,7 @@
 import { useState } from 'react'
 
 interface Props {
-  eventType: 'onDragEnter' | 'onDragLeave' | 'onDragOver' | 'onDrop'
+  eventType: 'onDragEnter' | 'onDragLeave' | 'onDragOver'
 }
 
 export default function DragAndDrop({ eventType }: Props) {
@@ -22,7 +22,12 @@ export default function DragAndDrop({ eventType }: Props) {
 
       <div
         draggable
-        {...{ [eventType]: () => setDropped(!dropped) }}
+        {...{
+          [eventType]: (e: React.DragEvent<HTMLDivElement>) => {
+            e.preventDefault()
+            setDropped(true)
+          },
+        }}
         className={`${
           dropped && 'bg-green-500'
         } border-2 border-dotted w-20 h-20 rounded flex justify-center items-center text-center`}
