@@ -123,7 +123,7 @@ export default function Page() {
 
       <hr className='my-4 border-slate-500 border-opacity-25' />
 
-      {/* onDrag, onDragStart */}
+      {/* onDrag, onDragStart, onDragEnd */}
       {/* TIP: onDrag will be called repeatedly when the element is dragged, while onDragStart will be called just one time after the element is dragged */}
       <h2 className='mb-2 mt-2'>onDrag</h2>
 
@@ -148,6 +148,20 @@ export default function Page() {
       >
         Drag me
       </div>
+
+      <h2 className='mb-2 mt-2'>onDragEnd</h2>
+
+      <div
+        draggable
+        onDragEnd={handleDrag}
+        className={`${
+          dragBoxColor ? 'bg-amber-500' : 'bg-green-500'
+        } w-20 h-20 rounded flex justify-center items-center`}
+      >
+        Drag me
+      </div>
+
+      <hr className='my-4 border-slate-500 border-opacity-25' />
     </>
   )
 }
