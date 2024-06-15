@@ -29,11 +29,14 @@ export default function Page() {
     setPressedKey(e.key)
   }
 
-  // onDrag
+  // onDrag, onDragStart, onDragEnd
   const [dragBoxColor, setDragBoxColor] = useState(false)
   const handleDrag = () => {
     setDragBoxColor(!dragBoxColor)
   }
+
+  // onDragEnter
+  const [dropped, setDropped] = useState(false)
 
   return (
     <>
@@ -162,6 +165,30 @@ export default function Page() {
       </div>
 
       <hr className='my-4 border-slate-500 border-opacity-25' />
+
+      {/* onDragEnter */}
+      <h2 className='mb-2 mt-2'>onDragEnd</h2>
+
+      <div className='container flex justify-between'>
+        <div
+          draggable
+          className={`bg-fuchsia-500 w-20 h-20 rounded flex justify-center items-center cursor-grab ${
+            dropped && 'invisible'
+          }`}
+        >
+          Drag me
+        </div>
+
+        <div
+          draggable
+          onDragEnter={() => setDropped(!dropped)}
+          className={`${
+            dropped && 'bg-green-500'
+          } border-2 border-dotted w-20 h-20 rounded flex justify-center items-center text-center`}
+        >
+          {dropped ? 'Dropped' : 'Drop here'}
+        </div>
+      </div>
     </>
   )
 }
