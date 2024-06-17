@@ -36,6 +36,9 @@ export default function Home() {
         <li>
           <Link href='/draggable-element'>Draggable element</Link>
         </li>
+        <li>
+          <Link href='/update-state-arrays'>Update state arrays</Link>
+        </li>
       </ul>
     </>
   )
