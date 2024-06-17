@@ -7,8 +7,12 @@ interface User {
 }
 
 export default function Page() {
-  const [users, setUsers] = useState<User[]>([{ id: 0, name: 'Walter' }])
+  const [users, setUsers] = useState<User[]>([
+    { id: 0, name: 'Walter' },
+    { id: 1, name: 'Jesse' },
+  ])
   const [inputValue, setInputValue] = useState('')
+  const [insertAt, setInsertAt] = useState<number>(users.length)
 
   // Add user
   const handleAddUser = (e: React.FormEvent<HTMLFormElement>) => {
@@ -37,6 +41,17 @@ export default function Page() {
     setUsers(transformedUsers)
   }
 
+  // Insert into users (at a specific index)
+  const handleInsertUser = () => {
+    if (!inputValue) return
+
+    const newUser = { id: users.length, name: inputValue }
+
+    setUsers([...users.slice(0, insertAt), newUser, ...users.slice(insertAt)])
+    setInputValue('')
+    setInsertAt(insertAt === users.length ? insertAt + 1 : insertAt + 1)
+  }
+
   return (
     <>
       <h1>Update state arrays</h1>
@@ -56,6 +71,33 @@ export default function Page() {
       <button onClick={handleTransformUsers} className='mb-2'>
         Transform Users
       </button>
+
+      {/* Insert users at specific index */}
+      <div>
+        <h2>Insert user at specific index</h2>
+        <input
+          type='text'
+          required
+          placeholder='New user'
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        />
+        <button onClick={handleInsertUser}>Add user</button>
+
+        <select
+          value={insertAt}
+          onChange={(e) => setInsertAt(Number(e.target.value))}
+          className='text-slate-700 p-2'
+        >
+          {users.map((user, index) => (
+            <option key={index} value={index}>
+              {index}
+            </option>
+          ))}
+
+          <option value={users.length}>End</option>
+        </select>
+      </div>
 
       <h2>Users:</h2>
       <ul>
