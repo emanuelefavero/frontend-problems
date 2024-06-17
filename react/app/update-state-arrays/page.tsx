@@ -52,6 +52,13 @@ export default function Page() {
     setInsertAt(insertAt === users.length ? insertAt + 1 : insertAt + 1)
   }
 
+  // Reverse array
+  const handleReverse = () => {
+    const newUsers = [...users]
+    newUsers.reverse()
+    setUsers(newUsers)
+  }
+
   return (
     <>
       <h1>Update state arrays</h1>
@@ -68,8 +75,12 @@ export default function Page() {
         <button type='submit'>Add user</button>
       </form>
 
-      <button onClick={handleTransformUsers} className='mb-2'>
+      <button onClick={handleTransformUsers} className='mb-2 mr-2'>
         Transform Users
+      </button>
+
+      <button onClick={handleReverse} className='mb-2'>
+        Reverse Users
       </button>
 
       {/* Insert users at specific index */}
