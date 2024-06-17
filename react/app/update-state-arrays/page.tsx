@@ -10,7 +10,7 @@ export default function Page() {
   const [users, setUsers] = useState<User[]>([{ id: 0, name: 'Walter' }])
   const [inputValue, setInputValue] = useState('')
 
-  // addUser
+  // Add user
   const handleAddUser = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (!inputValue) return
@@ -19,9 +19,22 @@ export default function Page() {
     setInputValue('')
   }
 
-  // deleteUser
+  // Delete user
   const handleDeleteUser = (id: number) => {
     setUsers(users.filter((user) => user.id !== id))
+  }
+
+  // Transform users (map)
+  const handleTransformUsers = () => {
+    const transformedUsers = users.map((user) => {
+      if (user.name === 'Walter') {
+        return { ...user, name: 'Walter White' }
+      }
+
+      return user
+    })
+
+    setUsers(transformedUsers)
   }
 
   return (
@@ -39,6 +52,10 @@ export default function Page() {
         />
         <button type='submit'>Add user</button>
       </form>
+
+      <button onClick={handleTransformUsers} className='mb-2'>
+        Transform Users
+      </button>
 
       <h2>Users:</h2>
       <ul>
