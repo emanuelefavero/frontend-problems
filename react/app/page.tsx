@@ -39,11 +39,6 @@ export default function Home() {
         <li>
           <Link href='/update-state-arrays'>Update state arrays</Link>
         </li>
-        <li>
-          <Link href='/remove-item-from-shopping-cart'>
-            Remove item from shopping cart
-          </Link>
-        </li>
       </ul>
     </>
   )

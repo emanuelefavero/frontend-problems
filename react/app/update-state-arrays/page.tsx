@@ -1,5 +1,8 @@
 'use client'
+
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 
 interface User {
   id: number
@@ -7,6 +10,7 @@ interface User {
 }
 
 export default function Page() {
+  const pathname = usePathname()
   const [users, setUsers] = useState<User[]>([
     { id: 0, name: 'Walter' },
     { id: 1, name: 'Jesse' },
@@ -62,6 +66,15 @@ export default function Page() {
   return (
     <>
       <h1>Update state arrays</h1>
+
+      <h2>Go to other problems</h2>
+      <ul>
+        <li>
+          <Link href={`${pathname}/remove-item-from-shopping-cart`}>
+            Remove item from shopping cart
+          </Link>
+        </li>
+      </ul>
 
       <form onSubmit={handleAddUser} className='mb-2'>
         <h2>Add user</h2>
