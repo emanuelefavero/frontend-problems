@@ -39,6 +39,22 @@ export default function Page() {
   }
 
   // Delete item from shopping cart if count is 0 or less
+  const handleDecrease = (productId: number) => {
+    let newProducts = products.map((product) => {
+      if (product.id === productId) {
+        return {
+          ...product,
+          count: product.count - 1,
+        }
+      }
+
+      return product
+    })
+
+    newProducts = newProducts.filter((product) => product.count > 0)
+
+    setProducts(newProducts)
+  }
 
   return (
     <>
