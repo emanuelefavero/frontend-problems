@@ -6,12 +6,14 @@ interface Props {
 
 export default function AddTodo({ onAddTodo }: Props) {
   const [title, setTitle] = useState('')
+
   return (
-    <>
+    <div className='mb-2'>
       <input
         placeholder='Add todo'
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        className='mr-2'
       />
       <button
         onClick={() => {
@@ -21,6 +23,6 @@ export default function AddTodo({ onAddTodo }: Props) {
       >
         Add
       </button>
-    </>
+    </div>
   )
 }

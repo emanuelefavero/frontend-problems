@@ -32,6 +32,7 @@ interface TaskProps {
 function Task({ todo, onChange, onDelete }: TaskProps) {
   const [isEditing, setIsEditing] = useState(false)
   let todoContent
+
   if (isEditing) {
     todoContent = (
       <>
@@ -44,17 +45,22 @@ function Task({ todo, onChange, onDelete }: TaskProps) {
             })
           }}
         />
-        <button onClick={() => setIsEditing(false)}>Save</button>
+        <button onClick={() => setIsEditing(false)} className='ml-2 mr-2'>
+          Save
+        </button>
       </>
     )
   } else {
     todoContent = (
       <>
         {todo.title}
-        <button onClick={() => setIsEditing(true)}>Edit</button>
+        <button onClick={() => setIsEditing(true)} className='ml-2 mr-2'>
+          Edit
+        </button>
       </>
     )
   }
+
   return (
     <label>
       <input
@@ -66,6 +72,7 @@ function Task({ todo, onChange, onDelete }: TaskProps) {
             done: e.target.checked,
           })
         }}
+        className='mr-2'
       />
       {todoContent}
       <button onClick={() => onDelete(todo.id)}>Delete</button>
