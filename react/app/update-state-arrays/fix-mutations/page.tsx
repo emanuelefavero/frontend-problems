@@ -30,12 +30,15 @@ export default function TaskApp() {
   }
 
   function handleChangeTodo(nextTodo: Todo) {
-    const todo = todos.find((t) => t.id === nextTodo.id)
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === nextTodo.id) {
+          return nextTodo
+        }
 
-    if (todo) {
-      todo.title = nextTodo.title
-      todo.done = nextTodo.done
-    }
+        return todo
+      })
+    )
   }
 
   function handleDeleteTodo(todoId: number) {
