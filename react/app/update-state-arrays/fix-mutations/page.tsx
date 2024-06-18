@@ -19,11 +19,14 @@ export default function TaskApp() {
   const [todos, setTodos] = useState(initialTodos)
 
   function handleAddTodo(title: string) {
-    todos.push({
-      id: nextId++,
-      title: title,
-      done: false,
-    })
+    setTodos((prevTodos) => [
+      ...prevTodos,
+      {
+        id: nextId++,
+        title,
+        done: false,
+      },
+    ])
   }
 
   function handleChangeTodo(nextTodo: Todo) {
@@ -36,8 +39,11 @@ export default function TaskApp() {
   }
 
   function handleDeleteTodo(todoId: number) {
-    const index = todos.findIndex((t) => t.id === todoId)
-    todos.splice(index, 1)
+    setTodos(
+      todos.filter((todo) => {
+        return todo.id !== todoId
+      })
+    )
   }
 
   return (
