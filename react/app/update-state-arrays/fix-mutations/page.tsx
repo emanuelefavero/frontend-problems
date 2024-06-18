@@ -19,6 +19,8 @@ export default function TaskApp() {
   const [todos, setTodos] = useState(initialTodos)
 
   function handleAddTodo(title: string) {
+    if (!title) return
+
     setTodos((prevTodos) => [
       ...prevTodos,
       {
