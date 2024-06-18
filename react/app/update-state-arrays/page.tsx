@@ -20,6 +20,9 @@ export default function Page() {
             Remove item from shopping cart
           </Link>
         </li>
+        <li>
+          <Link href={`${pathname}/fix-mutations`}>Fix mutations</Link>
+        </li>
       </ul>
     </>
   )
