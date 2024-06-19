@@ -7,6 +7,9 @@ export default function Home() {
 
       <ul>
         <li>
+          <Link href='/test'>Test page</Link>
+        </li>
+        <li>
           <Link href='/use-timeout'>useTimeout</Link>
         </li>
         <li>
