@@ -10,6 +10,9 @@ export default function Home() {
           <Link href='/test'>Test page</Link>
         </li>
         <li>
+          <Link href='/apple-scroll-animation'>Apple scroll animation</Link>
+        </li>
+        <li>
           <Link href='/use-timeout'>useTimeout</Link>
         </li>
         <li>
