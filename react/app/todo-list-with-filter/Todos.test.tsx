@@ -2,6 +2,7 @@ import { todos } from './data/todos'
 import { render, screen, fireEvent, cleanup } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import Todos from './Todos'
+import type { Filter } from './types/todos'
 
 // * Utils
 function renderTodos() {
@@ -13,6 +14,11 @@ function toggleTodo(id: number) {
   const checkbox = todoElement.querySelector('input[type="checkbox"]')
   fireEvent.click(checkbox!)
   return todoElement
+}
+
+function selectFilter(value: Filter) {
+  const select = screen.getByRole('combobox')
+  fireEvent.change(select, { target: { value } })
 }
 
 // * Tests
@@ -91,8 +97,7 @@ describe('Todos Component', () => {
   it('filters todos to show only active todos when active option is selected', () => {
     renderTodos()
 
-    const select = screen.getByRole('combobox')
-    fireEvent.change(select, { target: { value: 'active' } })
+    selectFilter('active')
 
     // Get all active todo items (the ones without the line-through class)
     const todoElements = screen.getAllByTestId(/todo-/)
@@ -108,8 +113,7 @@ describe('Todos Component', () => {
     // First, toggle the first todo to completed
     toggleTodo(todos[0].id)
 
-    const select = screen.getByRole('combobox')
-    fireEvent.change(select, { target: { value: 'completed' } })
+    selectFilter('completed')
 
     // Get all completed todo items (the ones with the line-through class)
     const todoElements = screen.getAllByTestId(/todo-/)
@@ -124,8 +128,7 @@ describe('Todos Component', () => {
   it('shows all todos when all option is selected', () => {
     renderTodos()
 
-    const select = screen.getByRole('combobox')
-    fireEvent.change(select, { target: { value: 'all' } })
+    selectFilter('all')
 
     // Get all todo items
     const todoElements = screen.getAllByTestId(/todo-/)
