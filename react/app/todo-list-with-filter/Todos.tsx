@@ -56,6 +56,7 @@ export default function Component() {
         <input
           type='text'
           id='newTodo'
+          placeholder='Enter a new todo'
           value={newTodo}
           onChange={(e) => setNewTodo(e.target.value)}
           onKeyUp={(e) => e.key === 'Enter' && addTodo()}
