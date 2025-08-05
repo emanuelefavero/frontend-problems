@@ -2,7 +2,7 @@ import { todos } from './data/todos'
 import { render, screen, fireEvent, cleanup } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import Todos from './Todos'
-import type { Filter } from './types/todos'
+import type { Todo, Filter } from './types/todos'
 
 // * Utils
 function renderTodos() {
@@ -31,7 +31,7 @@ describe('Todos Component', () => {
   it('renders initial todos', () => {
     renderTodos()
 
-    todos.forEach((todo) => {
+    todos.forEach((todo: Todo) => {
       const todoElement = screen.getByTestId(`todo-${todo.id}`)
       expect(todoElement).toBeDefined()
       expect(todoElement.textContent).toContain(todo.text)
