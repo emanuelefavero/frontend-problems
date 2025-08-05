@@ -115,4 +115,15 @@ describe('Todos Component', () => {
     // Expect at least one completed todo to be present
     expect(completedTodos.length).toBeGreaterThan(0)
   })
+
+  it('shows all todos when all option is selected', () => {
+    render(<Todos />)
+
+    const select = screen.getByRole('combobox')
+    fireEvent.change(select, { target: { value: 'all' } })
+
+    // Get all todo items
+    const todoElements = screen.getAllByTestId(/todo-/)
+    expect(todoElements.length).toBe(todos.length)
+  })
 })
