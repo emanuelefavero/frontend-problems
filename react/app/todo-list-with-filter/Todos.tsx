@@ -80,6 +80,7 @@ export default function Component() {
               <li
                 key={todo.id}
                 className={`${todo.completed && 'line-through opacity-70'}`}
+                data-testid={`todo-${todo.id}`}
               >
                 {index + 1}
                 <input
