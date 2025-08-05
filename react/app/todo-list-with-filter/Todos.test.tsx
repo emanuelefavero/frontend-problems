@@ -3,6 +3,12 @@ import { render, screen, fireEvent, cleanup } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import Todos from './Todos'
 
+// * Utils
+function renderTodos() {
+  render(<Todos />)
+}
+
+// * Tests
 describe('Todos Component', () => {
   afterEach(() => {
     cleanup()
@@ -10,7 +16,7 @@ describe('Todos Component', () => {
   })
 
   it('renders initial todos', () => {
-    render(<Todos />)
+    renderTodos()
 
     todos.forEach((todo) => {
       const todoElement = screen.getByTestId(`todo-${todo.id}`)
@@ -20,7 +26,7 @@ describe('Todos Component', () => {
   })
 
   it('adds a new todo', () => {
-    render(<Todos />)
+    renderTodos()
 
     const input = screen.getByPlaceholderText('Enter a new todo')
     const button = screen.getByText('Add Todo')
@@ -36,7 +42,7 @@ describe('Todos Component', () => {
   })
 
   it('adds a new todo when enter is pressed in the input', () => {
-    render(<Todos />)
+    renderTodos()
 
     const input = screen.getByPlaceholderText('Enter a new todo')
 
@@ -53,7 +59,7 @@ describe('Todos Component', () => {
   it('shows an alert if the new todo text is empty', () => {
     const alertMock = vi.spyOn(window, 'alert').mockImplementation(() => {})
 
-    render(<Todos />)
+    renderTodos()
 
     const button = screen.getByText('Add Todo')
 
@@ -64,7 +70,7 @@ describe('Todos Component', () => {
   })
 
   it('toggles a todo completion status when its checkbox is clicked', () => {
-    render(<Todos />)
+    renderTodos()
 
     const todoElement = screen.getByTestId(`todo-${todos[0].id}`)
     const checkbox = todoElement.querySelector('input[type="checkbox"]')
@@ -81,7 +87,7 @@ describe('Todos Component', () => {
   })
 
   it('filters todos to show only active todos when active option is selected', () => {
-    render(<Todos />)
+    renderTodos()
 
     const select = screen.getByRole('combobox')
     fireEvent.change(select, { target: { value: 'active' } })
@@ -95,7 +101,7 @@ describe('Todos Component', () => {
   })
 
   it('filters todos to show only completed todos when completed option is selected', () => {
-    render(<Todos />)
+    renderTodos()
 
     // First, toggle the first todo to completed
     const todoElement = screen.getByTestId(`todo-${todos[0].id}`)
@@ -117,7 +123,7 @@ describe('Todos Component', () => {
   })
 
   it('shows all todos when all option is selected', () => {
-    render(<Todos />)
+    renderTodos()
 
     const select = screen.getByRole('combobox')
     fireEvent.change(select, { target: { value: 'all' } })
