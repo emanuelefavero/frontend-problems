@@ -26,6 +26,7 @@ function getTodoElements() {
 }
 
 function getActiveTodos() {
+  // Filter out todos that are not completed (i.e., do not have the line-through class)
   return getTodoElements().filter(
     (el) => !el.className.includes('line-through')
   )
@@ -45,6 +46,7 @@ describe('Todos Component', () => {
   it('renders initial todos', () => {
     renderTodos()
 
+    // Check if the initial todos are rendered
     todos.forEach((todo: Todo) => {
       const todoElement = screen.getByTestId(`todo-${todo.id}`)
       expect(todoElement).toBeDefined()
@@ -55,14 +57,14 @@ describe('Todos Component', () => {
   it('adds a new todo', () => {
     renderTodos()
 
+    // Simulate adding a new todo
     const input = screen.getByPlaceholderText('Enter a new todo')
     const button = screen.getByText('Add Todo')
-
     const newTodoText = 'New Todo'
-
     fireEvent.change(input, { target: { value: newTodoText } })
     fireEvent.click(button)
 
+    // Check if the new todo is added
     const newTodoElement = screen.getByTestId(`todo-${todos.length + 1}`)
     expect(newTodoElement).toBeDefined()
     expect(newTodoElement.textContent).toContain(newTodoText)
@@ -71,13 +73,13 @@ describe('Todos Component', () => {
   it('adds a new todo when enter is pressed in the input', () => {
     renderTodos()
 
+    // Simulate pressing Enter in the input field when adding a new todo
     const input = screen.getByPlaceholderText('Enter a new todo')
-
     const newTodoText = 'New Todo with Enter'
-
     fireEvent.change(input, { target: { value: newTodoText } })
     fireEvent.keyUp(input, { key: 'Enter', code: 'Enter' })
 
+    // Check if the new todo is added
     const newTodoElement = screen.getByTestId(`todo-${todos.length + 1}`)
     expect(newTodoElement).toBeDefined()
     expect(newTodoElement.textContent).toContain(newTodoText)
@@ -85,13 +87,13 @@ describe('Todos Component', () => {
 
   it('shows an alert if the new todo text is empty', () => {
     const alertMock = vi.spyOn(window, 'alert').mockImplementation(() => {})
-
     renderTodos()
 
+    // Try to add an empty todo
     const button = screen.getByText('Add Todo')
-
     fireEvent.click(button)
 
+    // Expect the alert to be called with the correct message
     expect(alertMock).toHaveBeenCalledWith('Please enter a todo')
     alertMock.mockRestore() // Restore the original alert function
   })
@@ -110,20 +112,18 @@ describe('Todos Component', () => {
 
   it('filters todos to show only active todos when active option is selected', () => {
     renderTodos()
-
     selectFilter('active')
 
     // Get all active todo items (the ones without the line-through class)
     const activeTodos = getActiveTodos()
+
+    // Expect at least one active todo to be present
     expect(activeTodos.length).toBeGreaterThan(0)
   })
 
   it('filters todos to show only completed todos when completed option is selected', () => {
     renderTodos()
-
-    // First, toggle the first todo to completed
-    toggleTodo(todos[0].id)
-
+    toggleTodo(todos[0].id) // Toggle the first todo to completed
     selectFilter('completed')
 
     // Get all completed todo items (the ones with the line-through class)
@@ -135,11 +135,12 @@ describe('Todos Component', () => {
 
   it('shows all todos when all option is selected', () => {
     renderTodos()
-
     selectFilter('all')
 
     // Get all todo items
     const todoElements = getTodoElements()
+
+    // Expect the number of todo elements to match the initial todos length
     expect(todoElements.length).toBe(todos.length)
   })
 })
