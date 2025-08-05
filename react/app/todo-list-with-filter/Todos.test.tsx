@@ -8,6 +8,13 @@ function renderTodos() {
   render(<Todos />)
 }
 
+function toggleTodo(id: number) {
+  const todoElement = screen.getByTestId(`todo-${id}`)
+  const checkbox = todoElement.querySelector('input[type="checkbox"]')
+  fireEvent.click(checkbox!)
+  return todoElement
+}
+
 // * Tests
 describe('Todos Component', () => {
   afterEach(() => {
@@ -72,17 +79,12 @@ describe('Todos Component', () => {
   it('toggles a todo completion status when its checkbox is clicked', () => {
     renderTodos()
 
-    const todoElement = screen.getByTestId(`todo-${todos[0].id}`)
-    const checkbox = todoElement.querySelector('input[type="checkbox"]')
-
-    expect(checkbox).toBeDefined()
-
     // After toggling, it should have the line-through class
-    fireEvent.click(checkbox!)
+    const todoElement = toggleTodo(todos[0].id)
     expect(todoElement.className).toContain('line-through')
 
     // After toggling again, it should not have the line-through class
-    fireEvent.click(checkbox!)
+    toggleTodo(todos[0].id)
     expect(todoElement.className).not.toContain('line-through')
   })
 
@@ -104,10 +106,7 @@ describe('Todos Component', () => {
     renderTodos()
 
     // First, toggle the first todo to completed
-    const todoElement = screen.getByTestId(`todo-${todos[0].id}`)
-    const checkbox = todoElement.querySelector('input[type="checkbox"]')
-    expect(checkbox).toBeDefined()
-    fireEvent.click(checkbox!)
+    toggleTodo(todos[0].id)
 
     const select = screen.getByRole('combobox')
     fireEvent.change(select, { target: { value: 'completed' } })
