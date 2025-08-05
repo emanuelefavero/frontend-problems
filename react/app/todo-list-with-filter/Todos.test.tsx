@@ -1,11 +1,12 @@
 import { todos } from './data/todos'
 import { render, screen, fireEvent, cleanup } from '@testing-library/react'
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import Todos from './Todos'
 
 describe('Todos Component', () => {
   afterEach(() => {
     cleanup()
+    vi.clearAllMocks()
   })
 
   it('renders initial todos', () => {
@@ -47,5 +48,18 @@ describe('Todos Component', () => {
     const newTodoElement = screen.getByTestId(`todo-${todos.length + 1}`)
     expect(newTodoElement).toBeDefined()
     expect(newTodoElement.textContent).toContain(newTodoText)
+  })
+
+  it('shows an alert if the new todo text is empty', () => {
+    const alertMock = vi.spyOn(window, 'alert').mockImplementation(() => {})
+
+    render(<Todos />)
+
+    const button = screen.getByText('Add Todo')
+
+    fireEvent.click(button)
+
+    expect(alertMock).toHaveBeenCalledWith('Please enter a todo')
+    alertMock.mockRestore() // Restore the original alert function
   })
 })
