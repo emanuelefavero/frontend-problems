@@ -45,6 +45,9 @@ export default function Home() {
         <li>
           <Link href='/update-state-arrays'>Update state arrays</Link>
         </li>
+        <li>
+          <Link href='/todo-list-with-filter'>Todo List with Filter</Link>
+        </li>
       </ul>
     </>
   )
