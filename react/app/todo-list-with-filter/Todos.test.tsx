@@ -79,4 +79,40 @@ describe('Todos Component', () => {
     fireEvent.click(checkbox!)
     expect(todoElement.className).not.toContain('line-through')
   })
+
+  it('filters todos to show only active todos when active option is selected', () => {
+    render(<Todos />)
+
+    const select = screen.getByRole('combobox')
+    fireEvent.change(select, { target: { value: 'active' } })
+
+    // Get all active todo items (the ones without the line-through class)
+    const todoElements = screen.getAllByTestId(/todo-/)
+    const activeTodos = todoElements.filter(
+      (el) => !el.className.includes('line-through')
+    )
+    expect(activeTodos.length).toBeGreaterThan(0)
+  })
+
+  it('filters todos to show only completed todos when completed option is selected', () => {
+    render(<Todos />)
+
+    // First, toggle the first todo to completed
+    const todoElement = screen.getByTestId(`todo-${todos[0].id}`)
+    const checkbox = todoElement.querySelector('input[type="checkbox"]')
+    expect(checkbox).toBeDefined()
+    fireEvent.click(checkbox!)
+
+    const select = screen.getByRole('combobox')
+    fireEvent.change(select, { target: { value: 'completed' } })
+
+    // Get all completed todo items (the ones with the line-through class)
+    const todoElements = screen.getAllByTestId(/todo-/)
+    const completedTodos = todoElements.filter((el) =>
+      el.className.includes('line-through')
+    )
+
+    // Expect at least one completed todo to be present
+    expect(completedTodos.length).toBeGreaterThan(0)
+  })
 })
