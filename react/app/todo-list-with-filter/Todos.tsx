@@ -4,8 +4,6 @@ import { useState } from 'react'
 import type { Todo, Filter } from './types/todos'
 import { todos as initialTodos } from './data/todos'
 
-// TODO setup unit testing for this component
-
 export default function Component() {
   const [todos, setTodos] = useState<Todo[]>(initialTodos)
   const [newTodo, setNewTodo] = useState('')
