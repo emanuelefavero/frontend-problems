@@ -62,4 +62,21 @@ describe('Todos Component', () => {
     expect(alertMock).toHaveBeenCalledWith('Please enter a todo')
     alertMock.mockRestore() // Restore the original alert function
   })
+
+  it('toggles a todo completion status when its checkbox is clicked', () => {
+    render(<Todos />)
+
+    const todoElement = screen.getByTestId(`todo-${todos[0].id}`)
+    const checkbox = todoElement.querySelector('input[type="checkbox"]')
+
+    expect(checkbox).toBeDefined()
+
+    // After toggling, it should have the line-through class
+    fireEvent.click(checkbox!)
+    expect(todoElement.className).toContain('line-through')
+
+    // After toggling again, it should not have the line-through class
+    fireEvent.click(checkbox!)
+    expect(todoElement.className).not.toContain('line-through')
+  })
 })
