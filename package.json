@@ -4,7 +4,8 @@
   "description": "This repo contains a list of frontend problems that I have encountered and solved",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run dev --prefix react"
+    "dev": "npm run dev --prefix react",
+    "test": "npm run test --prefix react"
   },
   "keywords": [],
   "author": "Emanuele Favero",
