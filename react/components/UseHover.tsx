@@ -12,7 +12,7 @@ export default function UseHover() {
         className={`${
           isHovered ? 'bg-emerald-500' : 'bg-rose-600'
         } w-full h-40 text-white p-2`}
-        ref={ref as RefObject<HTMLDivElement>}
+        ref={ref as RefObject<HTMLDivElement | null>}
       >
         {isHovered ? 'Hovered' : 'Not hovered'}
       </div>

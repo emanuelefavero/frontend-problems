@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 
 interface Props {
-  ref: React.RefObject<HTMLDivElement>
+  ref: React.RefObject<HTMLDivElement | null>
   calculateFor?: 'topLeft' | 'bottomRight'
 }
 
