@@ -25,6 +25,16 @@ function getTodoElements() {
   return screen.getAllByTestId(/todo-/)
 }
 
+function getActiveTodos() {
+  return getTodoElements().filter(
+    (el) => !el.className.includes('line-through')
+  )
+}
+
+function getCompletedTodos() {
+  return getTodoElements().filter((el) => el.className.includes('line-through'))
+}
+
 // * Tests
 describe('Todos Component', () => {
   afterEach(() => {
@@ -104,10 +114,7 @@ describe('Todos Component', () => {
     selectFilter('active')
 
     // Get all active todo items (the ones without the line-through class)
-    const todoElements = getTodoElements()
-    const activeTodos = todoElements.filter(
-      (el) => !el.className.includes('line-through')
-    )
+    const activeTodos = getActiveTodos()
     expect(activeTodos.length).toBeGreaterThan(0)
   })
 
@@ -120,10 +127,7 @@ describe('Todos Component', () => {
     selectFilter('completed')
 
     // Get all completed todo items (the ones with the line-through class)
-    const todoElements = getTodoElements()
-    const completedTodos = todoElements.filter((el) =>
-      el.className.includes('line-through')
-    )
+    const completedTodos = getCompletedTodos()
 
     // Expect at least one completed todo to be present
     expect(completedTodos.length).toBeGreaterThan(0)
