@@ -21,6 +21,10 @@ function selectFilter(value: Filter) {
   fireEvent.change(select, { target: { value } })
 }
 
+function getTodoElements() {
+  return screen.getAllByTestId(/todo-/)
+}
+
 // * Tests
 describe('Todos Component', () => {
   afterEach(() => {
@@ -100,7 +104,7 @@ describe('Todos Component', () => {
     selectFilter('active')
 
     // Get all active todo items (the ones without the line-through class)
-    const todoElements = screen.getAllByTestId(/todo-/)
+    const todoElements = getTodoElements()
     const activeTodos = todoElements.filter(
       (el) => !el.className.includes('line-through')
     )
@@ -116,7 +120,7 @@ describe('Todos Component', () => {
     selectFilter('completed')
 
     // Get all completed todo items (the ones with the line-through class)
-    const todoElements = screen.getAllByTestId(/todo-/)
+    const todoElements = getTodoElements()
     const completedTodos = todoElements.filter((el) =>
       el.className.includes('line-through')
     )
@@ -131,7 +135,7 @@ describe('Todos Component', () => {
     selectFilter('all')
 
     // Get all todo items
-    const todoElements = screen.getAllByTestId(/todo-/)
+    const todoElements = getTodoElements()
     expect(todoElements.length).toBe(todos.length)
   })
 })
