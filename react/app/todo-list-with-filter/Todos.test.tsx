@@ -33,4 +33,19 @@ describe('Todos Component', () => {
     expect(newTodoElement).toBeDefined()
     expect(newTodoElement.textContent).toContain(newTodoText)
   })
+
+  it('adds a new todo when enter is pressed in the input', () => {
+    render(<Todos />)
+
+    const input = screen.getByPlaceholderText('Enter a new todo')
+
+    const newTodoText = 'New Todo with Enter'
+
+    fireEvent.change(input, { target: { value: newTodoText } })
+    fireEvent.keyUp(input, { key: 'Enter', code: 'Enter' })
+
+    const newTodoElement = screen.getByTestId(`todo-${todos.length + 1}`)
+    expect(newTodoElement).toBeDefined()
+    expect(newTodoElement.textContent).toContain(newTodoText)
+  })
 })
