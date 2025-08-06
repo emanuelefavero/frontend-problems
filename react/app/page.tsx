@@ -48,6 +48,9 @@ export default function Home() {
         <li>
           <Link href='/todo-list-with-filter'>Todo List with Filter</Link>
         </li>
+        <li>
+          <Link href='/shopping-cart-summary'>Shopping Cart Summary</Link>
+        </li>
       </ul>
     </>
   )
