@@ -23,7 +23,7 @@ export default function Page() {
         }}
       >
         <div
-          className='p-2 bg-violet-500 rounded cursor-move'
+          className='p-2 bg-violet-500 rounded-sm cursor-move'
           onMouseDown={handleMouseDown}
         >
           Drag me!

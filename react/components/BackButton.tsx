@@ -12,7 +12,7 @@ export default function BackButton() {
     <button
       aria-label='Back'
       onClick={() => router.back()}
-      className='text-black dark:text-white p-0 px-2 outline-none bg-transparent hover:bg-transparent focus:ring-0 focus:ring-offset-0 active:scale-95 transition-transform duration-150 hover:scale-105'
+      className='text-black dark:text-white p-0 px-2 outline-hidden bg-transparent hover:bg-transparent focus:ring-0 focus:ring-offset-0 active:scale-95 transition-transform duration-150 hover:scale-105'
     >
       ←
     </button>
