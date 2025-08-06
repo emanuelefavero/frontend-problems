@@ -45,6 +45,7 @@
 
   button,
   button[type='submit'] {
+    cursor: pointer;
     background-color: var(--primary-button);
     color: #fff;
     font-weight: 700;
