@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import type { Todo, Filter } from './types/todos'
 import { todos as initialTodos } from './data/todos'
+import type { Filter, Todo } from './types/todos'
 
 export default function Component() {
   const [todos, setTodos] = useState<Todo[]>(initialTodos)
@@ -42,7 +42,7 @@ export default function Component() {
         }
 
         return todo
-      })
+      }),
     )
   }
 
