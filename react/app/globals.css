@@ -2,62 +2,97 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  @apply text-slate-600;
-}
+@layer base {
+  :root {
+    --primary: #7c3aed;
+    --primary-hover: #8b5cf6;
+    --primary-button: var(--primary);
+    --primary-button-hover: var(--primary-hover);
+    --background: #eef2ff; /* indigo-50 */
+    --foreground: #475569; /* slate-600 */
 
-body {
-  @apply bg-indigo-50;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  @apply text-slate-800 font-bold;
-}
-
-@media (prefers-color-scheme: dark) {
-  * {
-    @apply text-white;
+    @media (prefers-color-scheme: dark) {
+      --primary: #8b5cf6;
+      --primary-hover: #7c3aed; /* --primary */
+      --primary-button: var(--primary-hover);
+      --primary-button-hover: var(--primary);
+      --background: #020618; /* slate-950 */
+      --foreground: #e2e8f0; /* slate-200 */
+    }
   }
 
   body {
-    @apply bg-slate-950;
+    background-color: var(--background);
+    color: var(--foreground);
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply text-white;
+  main {
+    padding: 1rem /* 16px */;
   }
-}
 
-main {
-  @apply p-4;
-}
+  h1 {
+    font-size: 2.25rem /* 36px */;
+    line-height: 2.5rem /* 40px */;
+    font-weight: 700;
+    margin-bottom: 1rem /* 16px */;
+  }
 
-h1 {
-  @apply text-4xl font-bold mb-4;
-}
+  a {
+    color: var(--primary);
 
-a {
-  @apply text-violet-500;
-}
+    &:hover {
+      color: var(--primary-hover);
+    }
+  }
 
-li {
-  @apply mb-2 ml-4;
-}
+  button,
+  button[type='submit'] {
+    background-color: var(--primary-button);
+    color: #fff;
+    font-weight: 700;
+    padding-top: 0.34rem;
+    padding-bottom: 0.34rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    border-radius: 2rem;
+    transition-property: background-color, transform, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); /* ease-in-out */
+    outline: none;
+    box-shadow: none;
 
-button, button[type='submit'] {
-  @apply bg-violet-500 text-white font-bold py-2 px-4 rounded hover:bg-violet-600 active:scale-90 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 transition duration-150 ease-in-out;
-}
+    &:hover {
+      background-color: var(--primary-button-hover);
+    }
 
-input {
-  @apply text-slate-800 px-2 py-1 border border-slate-300 rounded focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 transition duration-150 ease-in-out;
+    &:active {
+      transform: scale(0.95);
+    }
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 2px var(--foreground);
+    }
+  }
+
+  input,
+  select {
+    color: #334155; /* text-slate-800 */
+    padding-top: 0.25rem; /* py-1 */
+    padding-bottom: 0.25rem;
+    padding-left: 0.5rem; /* px-2 */
+    padding-right: 0.5rem;
+    border: 2px solid #cbd5e1; /* border border-slate-300 */
+    border-radius: 2rem;
+    outline: none; /* focus:outline-none */
+    transition-property: box-shadow, border-color;
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); /* ease-in-out */
+    box-shadow: none;
+    outline: none;
+
+    &:focus-visible {
+      box-shadow: 0 0 0 2px var(--primary);
+    }
+  }
 }
