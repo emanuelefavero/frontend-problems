@@ -1,6 +1,6 @@
 'use client'
 
-import { useCounterStore } from '../store/useCounterStore'
+import { useCounterStore } from '@/app/shopping-cart-summary/store/useCounterStore'
 
 export default function Component() {
   const { count, increment } = useCounterStore()
