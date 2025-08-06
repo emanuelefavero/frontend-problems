@@ -1,8 +1,8 @@
-import { todos } from './data/todos'
-import { render, screen, fireEvent, cleanup } from '@testing-library/react'
+import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import Todos from './Todos'
-import type { Todo, Filter } from './types/todos'
+import { todos } from './data/todos'
+import type { Filter, Todo } from './types/todos'
 
 // * Utils
 function renderTodos() {
@@ -28,7 +28,7 @@ function getTodoElements() {
 function getActiveTodos() {
   // Filter out todos that are not completed (i.e., do not have the line-through class)
   return getTodoElements().filter(
-    (el) => !el.className.includes('line-through')
+    (el) => !el.className.includes('line-through'),
   )
 }
 

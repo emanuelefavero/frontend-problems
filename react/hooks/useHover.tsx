@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export function useHover(): [React.RefObject<HTMLElement | null>, boolean] {
   const ref = useRef<HTMLElement>(null)

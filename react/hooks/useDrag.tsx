@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useCallback, useEffect, useState } from 'react'
 
 interface Props {
@@ -31,16 +32,16 @@ export function useDrag({ ref, calculateFor = 'topLeft' }: Props) {
           x: Math.max(
             Math.min(
               window.innerWidth - width,
-              window.innerWidth - (x + width)
+              window.innerWidth - (x + width),
             ),
-            0
+            0,
           ),
           y: Math.max(
             Math.min(
               window.innerHeight - height,
-              window.innerHeight - (y + height)
+              window.innerHeight - (y + height),
             ),
-            0
+            0,
           ),
         })
 
@@ -52,7 +53,7 @@ export function useDrag({ ref, calculateFor = 'topLeft' }: Props) {
         y: Math.min(Math.max(0, y), window.innerHeight - height),
       })
     },
-    [calculateFor]
+    [calculateFor],
   )
 
   const handleMouseUp = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -102,7 +103,7 @@ export function useDrag({ ref, calculateFor = 'topLeft' }: Props) {
 
       updateFinalPosition(width, height, left - position.x, top - position.y)
     },
-    [isDragging, dragInfo, ref, updateFinalPosition]
+    [isDragging, dragInfo, ref, updateFinalPosition],
   )
 
   const recalculate = (width: number, height: number) => {
@@ -120,7 +121,7 @@ export function useDrag({ ref, calculateFor = 'topLeft' }: Props) {
       width ?? boundingWidth,
       height ?? boundingHeight,
       left,
-      top
+      top,
     )
   }
 

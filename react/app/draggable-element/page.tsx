@@ -1,7 +1,7 @@
 'use client'
 
-import { useRef } from 'react'
 import { useDrag } from '@/hooks/useDrag'
+import { useRef } from 'react'
 
 export default function Page() {
   const draggableRef = useRef<HTMLDivElement>(null)
@@ -15,7 +15,7 @@ export default function Page() {
       <h1>Draggable Element</h1>
 
       <div
-        className='fixed top-32 left-4'
+        className='fixed left-4 top-32'
         ref={draggableRef}
         style={{
           top: position.y,
@@ -23,7 +23,7 @@ export default function Page() {
         }}
       >
         <div
-          className='p-2 bg-violet-500 rounded-sm cursor-move'
+          className='cursor-move rounded-sm bg-violet-500 p-2'
           onMouseDown={handleMouseDown}
         >
           Drag me!

@@ -44,7 +44,7 @@ export default function AppleScrollEffect() {
       const scrollFraction = scrollTop / maxScrollTop
       const frameIndex = Math.min(
         frameCount - 1,
-        Math.ceil(scrollFraction * frameCount)
+        Math.ceil(scrollFraction * frameCount),
       )
 
       requestAnimationFrame(() => updateImage(frameIndex + 1))
@@ -64,7 +64,7 @@ export default function AppleScrollEffect() {
       <canvas
         ref={canvasRef}
         id='hero-lightpass'
-        className='fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-full max-h-screen z-10'
+        className='fixed left-1/2 top-1/2 z-10 max-h-screen max-w-full -translate-x-1/2 -translate-y-1/2 transform'
       />
     </div>
   )

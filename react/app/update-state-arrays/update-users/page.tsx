@@ -99,7 +99,7 @@ export default function Page() {
         <select
           value={insertAt}
           onChange={(e) => setInsertAt(Number(e.target.value))}
-          className='text-slate-700 p-2'
+          className='p-2 text-slate-700'
         >
           {users.map((user, index) => (
             <option key={index} value={index}>
@@ -119,7 +119,7 @@ export default function Page() {
             <button
               aria-label='Delete user'
               onClick={() => handleDeleteUser(user.id)}
-              className='p-2 bg-transparent text-rose-500 hover:bg-transparent hover:text-rose-400'
+              className='bg-transparent p-2 text-rose-500 hover:bg-transparent hover:text-rose-400'
             >
               x
             </button>

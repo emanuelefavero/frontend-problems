@@ -4,9 +4,9 @@
 // In this example, all of the event handlers in App.js use mutation. As a result, editing and deleting todos doesn’t work. Rewrite handleAddTodo, handleChangeTodo, and handleDeleteTodo to use the non-mutative methods:
 
 import { useState } from 'react'
-import { Todo } from './types'
 import AddTodo from './AddTodo'
 import TaskList from './TaskList'
+import { Todo } from './types'
 
 let nextId = 3
 const initialTodos: Todo[] = [
@@ -39,7 +39,7 @@ export default function TaskApp() {
         }
 
         return todo
-      })
+      }),
     )
   }
 
@@ -47,7 +47,7 @@ export default function TaskApp() {
     setTodos(
       todos.filter((todo) => {
         return todo.id !== todoId
-      })
+      }),
     )
   }
 

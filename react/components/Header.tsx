@@ -1,9 +1,9 @@
-import HomeButton from '@/components/HomeButton'
 import BackButton from '@/components/BackButton'
+import HomeButton from '@/components/HomeButton'
 
 export default function Header() {
   return (
-    <header className='w-full flex bg-indigo-100 dark:bg-indigo-950 px-2 py-2 mb-4'>
+    <header className='mb-4 flex w-full bg-indigo-100 px-2 py-2 dark:bg-indigo-950'>
       <HomeButton />
       <BackButton />
     </header>

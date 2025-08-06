@@ -1,7 +1,7 @@
 'use client'
 
-import './page.css'
 import { useState } from 'react'
+import './page.css'
 
 interface ColorBoxProps {
   color: string
@@ -16,7 +16,7 @@ function ColorBox({ color, index, handleClick }: ColorBoxProps) {
         backgroundColor: color,
       }}
       onClick={() => handleClick(color, index)}
-      className={`button-grow w-8 h-8 cursor-pointer`}
+      className={`button-grow h-8 w-8 cursor-pointer`}
     ></div>
   )
 }

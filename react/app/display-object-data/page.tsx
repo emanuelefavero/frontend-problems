@@ -12,7 +12,7 @@ interface Temperatures {
 }
 
 export default function Page() {
-  const [temperatures, setTemperatures] = useState<Temperatures>({
+  const [temperatures] = useState<Temperatures>({
     'New York': {
       temperature: '22c',
       humidity: '70%',
@@ -47,7 +47,7 @@ export default function Page() {
       {/* Display all cities */}
       {Object.keys(temperatures).map((city) => (
         <div key={city}>
-          <h3 className='font-bold text-xl'>{city}</h3>
+          <h3 className='text-xl font-bold'>{city}</h3>
           <p>Temperature: {temperatures[city].temperature}</p>
           <p>Humidity: {temperatures[city].humidity}</p>
         </div>
@@ -68,9 +68,9 @@ export default function Page() {
       {/* Display searched city */}
       {currentCity && (
         <div>
-          <h3 className='font-bold text-xl'>
+          <h3 className='text-xl font-bold'>
             {Object.keys(temperatures).find(
-              (city) => temperatures[city] === currentCity
+              (city) => temperatures[city] === currentCity,
             )}
           </h3>
           <p>Temperature: {currentCity.temperature}</p>

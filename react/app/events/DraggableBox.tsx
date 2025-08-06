@@ -15,7 +15,7 @@ export default function DraggableBox({ eventType }: Props) {
       {...{ [eventType]: () => setDragBoxColor(!dragBoxColor) }}
       className={`${
         dragBoxColor ? 'bg-amber-500' : 'bg-green-500'
-      } w-20 h-20 rounded flex justify-center items-center cursor-grab`}
+      } flex h-20 w-20 cursor-grab items-center justify-center rounded`}
     >
       Drag me
     </div>

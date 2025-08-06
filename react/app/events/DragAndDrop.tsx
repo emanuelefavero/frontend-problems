@@ -13,7 +13,7 @@ export default function DragAndDrop({ eventType }: Props) {
     <div className='container flex justify-between'>
       <div
         draggable
-        className={`bg-fuchsia-500 w-20 h-20 rounded flex justify-center items-center cursor-grab ${
+        className={`flex h-20 w-20 cursor-grab items-center justify-center rounded bg-fuchsia-500 ${
           dropped && 'invisible'
         }`}
       >
@@ -30,7 +30,7 @@ export default function DragAndDrop({ eventType }: Props) {
         }}
         className={`${
           dropped && 'bg-green-500'
-        } border-2 border-dotted w-20 h-20 rounded flex justify-center items-center text-center`}
+        } flex h-20 w-20 items-center justify-center rounded border-2 border-dotted text-center`}
       >
         {dropped ? 'Dropped' : 'Drop here'}
       </div>

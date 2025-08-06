@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
 import { useIsFirstRender } from '@/hooks/useIsFirstRender'
+import { useState } from 'react'
 
 export default function UseIsFirstRender() {
   const [count, setCount] = useState(0)

@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import DraggableBox from './DraggableBox'
 import DragAndDrop from './DragAndDrop'
+import DraggableBox from './DraggableBox'
 
 export default function Page() {
   // onClick
@@ -76,7 +76,7 @@ export default function Page() {
       <div
         onMouseEnter={() => setEntered(true)}
         onMouseLeave={() => setEntered(false)}
-        className={`w-20 h-20 flex justify-center items-center select-none rounded ${
+        className={`flex h-20 w-20 select-none items-center justify-center rounded ${
           entered ? 'bg-green-500' : 'bg-rose-500'
         }`}
       >
@@ -93,7 +93,7 @@ export default function Page() {
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
         className={
-          focused ? 'placeholder-blue-400 text-blue-100 bg-blue-800' : ''
+          focused ? 'bg-blue-800 text-blue-100 placeholder-blue-400' : ''
         }
       />
 
@@ -113,7 +113,7 @@ export default function Page() {
         onKeyUp={handleKeyPressed}
       />
 
-      <p className='min-h-6 mt-2'>
+      <p className='mt-2 min-h-6'>
         <small>Last pressed key:</small> <code>{pressedKey || '\u00A0'}</code>
       </p>
 
