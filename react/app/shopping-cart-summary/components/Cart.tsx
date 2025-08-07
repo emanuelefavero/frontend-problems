@@ -33,10 +33,10 @@ export default function Component() {
               <div className='font-semibold'>${product.price}</div>
 
               {/* Quantity Buttons */}
-              <div className='flex select-none items-center justify-center gap-2 rounded-full border-2 border-amber-300 px-3 py-0.5'>
+              <div className='flex select-none items-center justify-center rounded-full border-2 border-amber-300'>
                 {/* Decrease Button */}
                 <button
-                  className='text-(--foreground) bg-transparent px-0 py-0 active:scale-95'
+                  className='text-(--foreground) rounded-full bg-transparent px-2.5 py-0.5 active:scale-95'
                   onClick={() => decreaseQuantity(product.id)}
                 >
                   -
@@ -47,7 +47,7 @@ export default function Component() {
 
                 {/* Increase Button */}
                 <button
-                  className='text-(--foreground) bg-transparent px-0 py-0 active:scale-95'
+                  className='text-(--foreground) rounded-full bg-transparent px-2.5 py-0.5 active:scale-95'
                   onClick={() => increaseQuantity(product.id)}
                 >
                   +
