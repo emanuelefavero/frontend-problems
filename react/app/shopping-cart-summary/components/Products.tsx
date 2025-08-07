@@ -1,5 +1,6 @@
 'use client'
 
+import { useCartStore } from '@/app/shopping-cart-summary/store/useCartStore'
 import type { Product } from '@/app/shopping-cart-summary/types/products'
 
 interface Props {
@@ -7,6 +8,10 @@ interface Props {
 }
 
 export default function Component({ products }: Props) {
+  const { addProduct } = useCartStore()
+
+  const handleAddToCart = (product: Product) => addProduct(product)
+
   return (
     <div className='max-w-sm'>
       <h2 className='text-3xl font-bold'>Products</h2>
@@ -17,7 +22,10 @@ export default function Component({ products }: Props) {
             <div>{product.name}</div>
             <div className='flex items-center gap-2'>
               <div className='font-semibold'>${product.price}</div>
-              <button className='bg-amber-300 text-sm font-medium text-black hover:bg-amber-200'>
+              <button
+                className='bg-amber-300 text-sm font-medium text-black hover:bg-amber-200'
+                onClick={() => handleAddToCart(product)}
+              >
                 Add to Cart
               </button>
             </div>

@@ -1,20 +1,13 @@
-import type { Product } from '@/app/shopping-cart-summary/types/products'
+'use client'
 
-// TODO move this to zustand
-const cartProducts: Product[] = [
-  {
-    id: '123',
-    name: 'Cartier Tank',
-    price: 3800,
-  },
-  {
-    id: '456',
-    name: 'Cartier Santos',
-    price: 3800,
-  },
-]
+import { useCartStore } from '@/app/shopping-cart-summary/store/useCartStore'
+import type { Cart } from '@/app/shopping-cart-summary/types/cart'
 
 export default function Component() {
+  const { cart } = useCartStore()
+
+  if (!cart.length) return
+
   return (
     <div className='max-w-sm'>
       <h2 className='mt-2 text-3xl font-bold'>Cart</h2>
@@ -26,7 +19,7 @@ export default function Component() {
 
       {/* Cart Products */}
       <ul className='mt-2 flex flex-col gap-2'>
-        {cartProducts.map((product: Product) => (
+        {cart.map((product: Cart) => (
           <li key={product.id} className='flex items-center justify-between'>
             <div>{product.name}</div>
             <div className='flex items-center gap-2'>
