@@ -7,10 +7,11 @@ interface CartState {
   total: number
   addProduct: (product: Product) => void
   clearCart: () => void
-  // removeProduct: (productId: string) => void
-  // updateQuantity: (productId: string) => void
+  increaseQuantity: (productId: string) => void
+  decreaseQuantity: (productId: string) => void
 
   // TODO after implementing the above methods, we can add these methods ?
+  // removeProduct: (productId: string) => void
   // getTotal: () => number
   // getCartProductsCount: () => number
   // isEmpty: () => boolean
@@ -39,9 +40,45 @@ export const useCartStore = create<CartState>((set) => ({
         total: state.total + product.price,
       }
     }),
+
   clearCart: () =>
     set(() => ({
       cart: [],
       total: 0,
     })),
+
+  increaseQuantity: (productId) =>
+    set((state) => {
+      const product = state.cart.find((p) => p.id === productId)
+      if (!product) return state
+
+      return {
+        cart: state.cart.map((p) =>
+          p.id === productId ? { ...p, quantity: p.quantity + 1 } : p,
+        ),
+        total: state.total + product.price,
+      }
+    }),
+
+  decreaseQuantity: (productId) =>
+    set((state) => {
+      const product = state.cart.find((p) => p.id === productId)
+
+      if (!product) return state
+
+      // If quantity is 1, remove the product from the cart
+      if (product.quantity <= 1) {
+        return {
+          cart: state.cart.filter((p) => p.id !== productId),
+          total: state.total - product.price,
+        }
+      }
+
+      return {
+        cart: state.cart.map((p) =>
+          p.id === productId ? { ...p, quantity: p.quantity - 1 } : p,
+        ),
+        total: state.total - product.price,
+      }
+    }),
 }))

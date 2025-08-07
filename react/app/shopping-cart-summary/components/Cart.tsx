@@ -4,7 +4,8 @@ import { useCartStore } from '@/app/shopping-cart-summary/store/useCartStore'
 import type { Cart } from '@/app/shopping-cart-summary/types/cart'
 
 export default function Component() {
-  const { cart, total, clearCart } = useCartStore()
+  const { cart, total, clearCart, increaseQuantity, decreaseQuantity } =
+    useCartStore()
 
   if (!cart.length) return
 
@@ -30,11 +31,17 @@ export default function Component() {
 
               {/* Quantity Buttons */}
               <div className='flex select-none items-center justify-center gap-2 rounded-full border-2 border-amber-300 px-3 py-0.5'>
-                <button className='text-(--foreground) bg-transparent px-0 py-0 active:scale-95'>
+                <button
+                  className='text-(--foreground) bg-transparent px-0 py-0 active:scale-95'
+                  onClick={() => decreaseQuantity(product.id)}
+                >
                   -
                 </button>
                 <div>{product.quantity}</div>
-                <button className='text-(--foreground) bg-transparent px-0 py-0 active:scale-95'>
+                <button
+                  className='text-(--foreground) bg-transparent px-0 py-0 active:scale-95'
+                  onClick={() => increaseQuantity(product.id)}
+                >
                   +
                 </button>
               </div>
