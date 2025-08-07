@@ -59,7 +59,7 @@ export default function Component() {
       </ul>
 
       {/* Line Separator */}
-      <hr className='mt-4' />
+      <hr className='mt-4 h-px border-0 bg-slate-300 dark:bg-slate-700' />
 
       {/* Total */}
       <p className='mt-2 flex w-full justify-end text-lg'>
