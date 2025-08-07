@@ -10,8 +10,6 @@ interface Props {
 export default function Component({ products }: Props) {
   const { addProduct } = useCartStore()
 
-  const handleAddToCart = (product: Product) => addProduct(product)
-
   return (
     <div className='max-w-sm'>
       <h2 className='text-3xl font-bold'>Products</h2>
@@ -24,7 +22,7 @@ export default function Component({ products }: Props) {
               <div className='font-semibold'>${product.price}</div>
               <button
                 className='bg-amber-300 text-sm font-medium text-black hover:bg-amber-200'
-                onClick={() => handleAddToCart(product)}
+                onClick={() => addProduct(product)}
               >
                 Add to Cart
               </button>

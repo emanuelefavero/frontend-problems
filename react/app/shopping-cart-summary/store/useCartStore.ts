@@ -6,8 +6,8 @@ interface CartState {
   cart: Cart[]
   total: number
   addProduct: (product: Product) => void
+  clearCart: () => void
   // removeProduct: (productId: string) => void
-  // clearCart: () => void
   // updateQuantity: (productId: string) => void
 
   // TODO after implementing the above methods, we can add these methods ?
@@ -39,4 +39,9 @@ export const useCartStore = create<CartState>((set) => ({
         total: state.total + product.price,
       }
     }),
+  clearCart: () =>
+    set(() => ({
+      cart: [],
+      total: 0,
+    })),
 }))

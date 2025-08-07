@@ -4,7 +4,7 @@ import { useCartStore } from '@/app/shopping-cart-summary/store/useCartStore'
 import type { Cart } from '@/app/shopping-cart-summary/types/cart'
 
 export default function Component() {
-  const { cart } = useCartStore()
+  const { cart, clearCart } = useCartStore()
 
   if (!cart.length) return
 
@@ -13,7 +13,10 @@ export default function Component() {
       <h2 className='mt-2 text-3xl font-bold'>Cart</h2>
 
       {/* Clear All Products */}
-      <button className='mt-2 bg-transparent px-0 py-0 font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400'>
+      <button
+        className='mt-2 bg-transparent px-0 py-0 font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400'
+        onClick={clearCart}
+      >
         Clear all products
       </button>
 
