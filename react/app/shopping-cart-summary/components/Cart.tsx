@@ -4,7 +4,7 @@ import { useCartStore } from '@/app/shopping-cart-summary/store/useCartStore'
 import type { Cart } from '@/app/shopping-cart-summary/types/cart'
 
 export default function Component() {
-  const { cart, clearCart } = useCartStore()
+  const { cart, total, clearCart } = useCartStore()
 
   if (!cart.length) return
 
@@ -49,7 +49,7 @@ export default function Component() {
       {/* Total */}
       {/* TODO Calculate total and get cart products length from zustand */}
       <p className='mt-2 flex w-full justify-end text-lg'>
-        Total (3 products): <span className='font-bold'>&nbsp;$17000</span>
+        Total (3 products): <span className='font-bold'>&nbsp;${total}</span>
       </p>
     </div>
   )
