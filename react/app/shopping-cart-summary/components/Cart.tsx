@@ -33,7 +33,7 @@ export default function Component() {
                 <button className='text-(--foreground) bg-transparent px-0 py-0 active:scale-95'>
                   -
                 </button>
-                <div>1</div>
+                <div>{product.quantity}</div>
                 <button className='text-(--foreground) bg-transparent px-0 py-0 active:scale-95'>
                   +
                 </button>
