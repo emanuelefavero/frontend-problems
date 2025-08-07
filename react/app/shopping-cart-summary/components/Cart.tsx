@@ -25,19 +25,27 @@ export default function Component() {
       <ul className='mt-2 flex flex-col gap-2'>
         {cart.map((product: Cart) => (
           <li key={product.id} className='flex items-center justify-between'>
+            {/* Product Name */}
             <div>{product.name}</div>
+
             <div className='flex items-center gap-2'>
+              {/* Price */}
               <div className='font-semibold'>${product.price}</div>
 
               {/* Quantity Buttons */}
               <div className='flex select-none items-center justify-center gap-2 rounded-full border-2 border-amber-300 px-3 py-0.5'>
+                {/* Decrease Button */}
                 <button
                   className='text-(--foreground) bg-transparent px-0 py-0 active:scale-95'
                   onClick={() => decreaseQuantity(product.id)}
                 >
                   -
                 </button>
+
+                {/* Quantity */}
                 <div>{product.quantity}</div>
+
+                {/* Increase Button */}
                 <button
                   className='text-(--foreground) bg-transparent px-0 py-0 active:scale-95'
                   onClick={() => increaseQuantity(product.id)}

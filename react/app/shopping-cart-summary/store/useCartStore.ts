@@ -46,6 +46,7 @@ export const useCartStore = create<CartState>((set) => ({
       const product = state.cart.find((p) => p.id === productId)
       if (!product) return state
 
+      // Increase the quantity of the product and update the total
       return {
         cart: state.cart.map((p) =>
           p.id === productId ? { ...p, quantity: p.quantity + 1 } : p,
@@ -68,6 +69,7 @@ export const useCartStore = create<CartState>((set) => ({
         }
       }
 
+      // Decrease the quantity of the product and update the total
       return {
         cart: state.cart.map((p) =>
           p.id === productId ? { ...p, quantity: p.quantity - 1 } : p,
