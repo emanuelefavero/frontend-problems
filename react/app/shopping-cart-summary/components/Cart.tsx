@@ -43,7 +43,7 @@ export default function Component() {
                 </button>
 
                 {/* Quantity */}
-                <div>{product.quantity}</div>
+                <div className='min-w-8 text-center'>{product.quantity}</div>
 
                 {/* Increase Button */}
                 <button
