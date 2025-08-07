@@ -9,12 +9,6 @@ interface CartState {
   clearCart: () => void
   increaseQuantity: (productId: string) => void
   decreaseQuantity: (productId: string) => void
-
-  // TODO after implementing the above methods, we can add these methods ?
-  // removeProduct: (productId: string) => void
-  // getTotal: () => number
-  // getCartProductsCount: () => number
-  // isEmpty: () => boolean
 }
 
 export const useCartStore = create<CartState>((set) => ({
