@@ -47,7 +47,6 @@ export default function Component() {
       <hr className='mt-4' />
 
       {/* Total */}
-      {/* TODO Calculate total and get cart products length from zustand */}
       <p className='mt-2 flex w-full justify-end text-lg'>
         Total ({cart.length} product{cart.length === 1 ? '' : 's'}):{' '}
         <span className='font-bold'>&nbsp;${total}</span>
