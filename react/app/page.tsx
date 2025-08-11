@@ -54,6 +54,9 @@ export default function Home() {
         <li>
           <Link href='/pagination'>Pagination</Link>
         </li>
+        <li>
+          <Link href='/bento-grid'>Bento Grid</Link>
+        </li>
       </ul>
     </>
   )
