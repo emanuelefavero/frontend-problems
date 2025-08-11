@@ -17,8 +17,12 @@ function fetchPosts(page: number, pageSize: number) {
   return new Promise<{ data: typeof posts; total: number }>((resolve) => {
     setTimeout(
       () => {
+        // * Skip the already fetched posts by multiplying the page number with the page size. Example: if page = 3 and pageSize = 5, then start = 10 (skipping the first 10 posts)
         const start = (page - 1) * pageSize
+
+        // * Calculate the ending index (non-inclusive) for the current page by adding the page size to the starting index
         const end = start + pageSize
+
         resolve({
           data: posts.slice(start, end),
           total: posts.length,
@@ -40,6 +44,8 @@ export default function Component() {
 
   useEffect(() => {
     setLoading(true)
+
+    // * Fetch the posts for the current page
     fetchPosts(page, PAGE_SIZE).then((res) => {
       setData(res.data)
       setTotal(res.total)
@@ -47,6 +53,7 @@ export default function Component() {
     })
   }, [page])
 
+  // * Disable previous/next buttons if loading or at boundaries
   const disabledPrev = page === 1 || loading
   const disabledNext = page === totalPages || loading
   const disabledStyles = 'pointer-events-none cursor-not-allowed opacity-50'
@@ -74,6 +81,7 @@ export default function Component() {
 
       <div className='mt-4 flex items-center justify-between'>
         <button
+          // * Prevent going to the previous page if already on the first page
           onClick={() => setPage((p) => Math.max(1, p - 1))}
           className={disabledPrev ? disabledStyles : ''}
           disabled={disabledPrev}
@@ -86,6 +94,7 @@ export default function Component() {
         </span>
 
         <button
+          // * Prevent going to the next page if already on the last page
           onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
           className={disabledNext ? disabledStyles : ''}
           disabled={disabledNext}
