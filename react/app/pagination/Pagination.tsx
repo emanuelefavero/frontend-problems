@@ -1,5 +1,6 @@
 'use client'
 
+import SpinnerIcon from '@/components/icons/SpinnerIcon'
 import { useEffect, useState } from 'react'
 
 // Mock server data
@@ -14,14 +15,19 @@ const PAGE_SIZE = 5
 // Simulate server-side fetch
 function fetchPosts(page: number, pageSize: number) {
   return new Promise<{ data: typeof posts; total: number }>((resolve) => {
-    setTimeout(() => {
-      const start = (page - 1) * pageSize
-      const end = start + pageSize
-      resolve({
-        data: posts.slice(start, end),
-        total: posts.length,
-      })
-    }, 300) // Simulate network delay
+    setTimeout(
+      () => {
+        const start = (page - 1) * pageSize
+        const end = start + pageSize
+        resolve({
+          data: posts.slice(start, end),
+          total: posts.length,
+        })
+      },
+
+      // Simulate network delay (random number between 200 and 450)
+      Math.floor(Math.random() * (450 - 200 + 1)) + 200,
+    )
   })
 }
 
@@ -41,11 +47,17 @@ export default function Component() {
     })
   }, [page])
 
+  const disabledPrev = page === 1 || loading
+  const disabledNext = page === totalPages || loading
+  const disabledStyles = 'pointer-events-none cursor-not-allowed opacity-50'
+
   return (
     <div className='max-w-sm'>
       <div className='flex min-h-[350px] flex-col items-center justify-center'>
         {loading ? (
-          <div className='py-4 text-center'>Loading...</div>
+          <div className='flex h-fit w-fit items-center justify-center rounded-full p-4'>
+            <SpinnerIcon className='h-8 w-8' />
+          </div>
         ) : (
           <ul className='w-full divide-y divide-gray-200/20'>
             {data.map((post) => (
@@ -61,7 +73,8 @@ export default function Component() {
       <div className='mt-4 flex items-center justify-between'>
         <button
           onClick={() => setPage((p) => Math.max(1, p - 1))}
-          disabled={page === 1 || loading}
+          className={disabledPrev ? disabledStyles : ''}
+          disabled={disabledPrev}
         >
           Prev
         </button>
@@ -72,7 +85,8 @@ export default function Component() {
 
         <button
           onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-          disabled={page === totalPages || loading}
+          className={disabledNext ? disabledStyles : ''}
+          disabled={disabledNext}
         >
           Next
         </button>
