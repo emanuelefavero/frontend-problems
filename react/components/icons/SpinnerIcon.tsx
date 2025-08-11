@@ -1,11 +1,6 @@
 type Props = React.ComponentPropsWithRef<'svg'>
 
-/*
-fill='none'
-width='100%'
-height='100%'
-className={`fill-(--primary) ${className}`}
-*/
+// * @see https://magecdn.com/tools/svg-loaders
 
 export default function Component({ className }: Props) {
   return (
