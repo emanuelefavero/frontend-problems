@@ -51,6 +51,9 @@ export default function Home() {
         <li>
           <Link href='/shopping-cart-summary'>Shopping Cart Summary</Link>
         </li>
+        <li>
+          <Link href='/pagination'>Pagination</Link>
+        </li>
       </ul>
     </>
   )
