@@ -25,8 +25,8 @@ function fetchPosts(page: number, pageSize: number) {
         })
       },
 
-      // Simulate network delay (random number between 200 and 450)
-      Math.floor(Math.random() * (450 - 200 + 1)) + 200,
+      // Simulate network delay (random number between 200 and 600)
+      Math.floor(Math.random() * (600 - 200 + 1)) + 200,
     )
   })
 }
@@ -63,7 +63,9 @@ export default function Component() {
             {data.map((post) => (
               <li key={post.id} className='py-3'>
                 <div className='font-semibold'>{post.title}</div>
-                <div className='text-sm'>{post.description}</div>
+                <div className='text-sm text-slate-500 dark:text-slate-400'>
+                  {post.description}
+                </div>
               </li>
             ))}
           </ul>
