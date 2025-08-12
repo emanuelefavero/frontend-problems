@@ -3,7 +3,7 @@ export default function Page() {
     <>
       <h1>divide</h1>
 
-      <p>
+      <p className='mb-4'>
         Use the divide utilities to create dividers between elements. This
         automatically prevents the last element from having a divider.
       </p>

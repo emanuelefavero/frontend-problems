@@ -18,6 +18,9 @@ export default function Page() {
         <li>
           <Link href='/tailwind/divide'>divide</Link>
         </li>
+        <li>
+          <Link href='/tailwind/space'>space</Link>
+        </li>
       </ul>
     </>
   )
