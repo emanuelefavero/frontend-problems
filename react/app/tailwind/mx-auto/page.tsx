@@ -3,7 +3,7 @@ export default function Page() {
     <>
       <h1>mx-auto</h1>
 
-      <p>
+      <p className='mb-4'>
         Center element horizontally inside its container, without using flex or
         grid
       </p>

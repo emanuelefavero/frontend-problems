@@ -12,6 +12,9 @@ export default function Page() {
         <li>
           <Link href='/tailwind/grid-cols-custom'>grid-cols-custom</Link>
         </li>
+        <li>
+          <Link href='/tailwind/size'>size</Link>
+        </li>
       </ul>
     </>
   )
