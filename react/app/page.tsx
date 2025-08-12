@@ -57,6 +57,9 @@ export default function Home() {
         <li>
           <Link href='/bento-grid'>Bento Grid</Link>
         </li>
+        <li>
+          <Link href='/tailwind'>Tailwind CSS</Link>
+        </li>
       </ul>
     </>
   )
