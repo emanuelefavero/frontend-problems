@@ -24,6 +24,9 @@ export default function Page() {
         <li>
           <Link href='/tailwind/line-clamp'>line-clamp</Link>
         </li>
+        <li>
+          <Link href='/tailwind/truncate'>truncate</Link>
+        </li>
       </ul>
     </>
   )
