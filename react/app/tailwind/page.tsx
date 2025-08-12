@@ -27,6 +27,9 @@ export default function Page() {
         <li>
           <Link href='/tailwind/truncate'>truncate</Link>
         </li>
+        <li>
+          <Link href='/tailwind/sr-only'>sr-only</Link>
+        </li>
       </ul>
     </>
   )
