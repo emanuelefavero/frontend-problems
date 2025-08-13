@@ -60,6 +60,9 @@ export default function Home() {
         <li>
           <Link href='/tailwind'>Tailwind CSS</Link>
         </li>
+        <li>
+          <Link href='/modal'>Modal</Link>
+        </li>
       </ul>
     </>
   )
