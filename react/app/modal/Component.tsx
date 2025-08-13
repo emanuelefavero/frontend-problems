@@ -14,7 +14,7 @@ export default function Component() {
         <>
           {/* Overlay */}
           <div
-            className='fixed inset-0 z-40 bg-blue-950/20 backdrop-blur-sm transition-opacity'
+            className='fixed inset-0 z-40 bg-blue-50/20 backdrop-blur-sm transition-opacity dark:bg-blue-950/20'
             aria-hidden='true'
           />
 
@@ -24,7 +24,7 @@ export default function Component() {
           >
             {/* Modal Card */}
             <div
-              className='flex flex-col gap-2 rounded bg-blue-950 p-4 text-white shadow-sm shadow-black'
+              className='flex flex-col gap-2 rounded bg-white p-4 shadow-sm shadow-black/30 dark:bg-blue-950 dark:shadow-black'
               role='dialog'
               aria-modal='true'
             >
