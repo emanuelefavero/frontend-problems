@@ -63,6 +63,9 @@ export default function Home() {
         <li>
           <Link href='/modal'>Modal</Link>
         </li>
+        <li>
+          <Link href='/exit-animation'>Exit Animation</Link>
+        </li>
       </ul>
     </>
   )

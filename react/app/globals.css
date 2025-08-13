@@ -38,6 +38,22 @@
     }
   }
 
+  /* Disappear */
+  --animate-disappear: disappear 250ms ease-in;
+
+  @keyframes disappear {
+    from {
+      /* transform-origin: top; */
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      /* transform-origin: top; */
+      transform: translateY(-33px);
+      opacity: 0;
+    }
+  }
+
   /* Fade In */
   --animate-fade-in: fade-in 250ms ease-in;
 
@@ -47,6 +63,18 @@
     }
     to {
       opacity: 1;
+    }
+  }
+
+  /* Fade Out */
+  --animate-fade-out: fade-out 250ms ease-in;
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
     }
   }
 }
