@@ -15,6 +15,40 @@
   /* --breakpoint-2xl: 96rem; 1536px */
   --breakpoint-3xl: 120rem; /* 1920px */
   --breakpoint-4xl: 160rem; /* 2560px */
+
+  /* ANIMATIONS */
+  /* Appear */
+  --animate-appear: appear 250ms ease-in;
+
+  @keyframes appear {
+    from {
+      /* transform-origin: top; */
+      transform: translateY(-33px);
+      opacity: 0;
+    }
+    to {
+      /* transform-origin: top; */
+      transform: translateY(0);
+      opacity: 1;
+    }
+    30% {
+      /* transform-origin: top; */
+      transform: translateY(-33px);
+      opacity: 0;
+    }
+  }
+
+  /* Fade In */
+  --animate-fade-in: fade-in 250ms ease-in;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 }
 
 /* CSS */
