@@ -9,10 +9,7 @@ export default function Component() {
 
   const toggle = () => {
     // If the element is not currently shown, show it
-    if (!show) {
-      setShow(true)
-      return
-    }
+    if (!show) return setShow(true)
 
     // If the element is currently shown, start the exit animation and then hide it
     setDisappearing(true)
