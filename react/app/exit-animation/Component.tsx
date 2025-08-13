@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 export default function Component() {
   const [show, setShow] = useState(false)
   const [disappearing, setDisappearing] = useState(false)
-  const timeout = useRef<NodeJS.Timeout | null>(null)
+  const timeout = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const toggle = () => {
     // If the element is not currently shown, show it
