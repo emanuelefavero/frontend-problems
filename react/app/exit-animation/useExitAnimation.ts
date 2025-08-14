@@ -6,9 +6,12 @@ import { useEffect, useRef, useState } from 'react'
  * @returns [show, disappearing, toggle]
  */
 
+type Params = {
+  duration?: number
+}
 type Return = [boolean, boolean, () => void]
 
-export function useExitAnimation(duration: number = 250): Return {
+export function useExitAnimation({ duration = 250 }: Params): Return {
   const [show, setShow] = useState(false)
   const [disappearing, setDisappearing] = useState(false)
   const timeout = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -25,6 +28,7 @@ export function useExitAnimation(duration: number = 250): Return {
     }, duration)
   }
 
+  // Clear timeout on unmount
   useEffect(() => {
     return () => {
       if (timeout.current) {

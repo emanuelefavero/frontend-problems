@@ -3,7 +3,7 @@
 import { useExitAnimation } from './useExitAnimation'
 
 export default function Component() {
-  const [show, disappearing, toggle] = useExitAnimation(250)
+  const [show, disappearing, toggle] = useExitAnimation({ duration: 250 })
 
   return (
     <div className='min-h-32'>
