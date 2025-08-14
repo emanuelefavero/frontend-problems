@@ -6,9 +6,9 @@ import { useEffect, useRef, useState } from 'react'
  * @returns [show, disappearing, toggle]
  */
 
-export function useExitAnimation(
-  duration: number = 250,
-): [boolean, boolean, () => void] {
+type Return = [boolean, boolean, () => void]
+
+export function useExitAnimation(duration: number = 250): Return {
   const [show, setShow] = useState(false)
   const [disappearing, setDisappearing] = useState(false)
   const timeout = useRef<ReturnType<typeof setTimeout> | null>(null)
