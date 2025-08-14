@@ -66,6 +66,9 @@ export default function Home() {
         <li>
           <Link href='/exit-animation'>Exit Animation</Link>
         </li>
+        <li>
+          <Link href='/portals'>Portals</Link>
+        </li>
       </ul>
     </>
   )
