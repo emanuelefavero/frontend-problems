@@ -29,7 +29,8 @@ export default function Component() {
   }, [])
 
   return (
-    <>
+    // Reserve space for the animated element (not really needed, only for layout)
+    <div className='min-h-32'>
       {/* Toggle Button */}
       <button onClick={toggle} className='mb-4'>
         Toggle Text
@@ -43,6 +44,6 @@ export default function Component() {
           Hello World
         </h2>
       )}
-    </>
+    </div>
   )
 }
