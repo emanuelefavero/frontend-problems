@@ -1,9 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { todos as initialTodos, type Todo } from './data/todos'
-
-type Filter = 'all' | 'completed' | 'incomplete'
+import { todos as initialTodos } from './data/todos'
+import type { Filter, Todo } from './types/todos'
 
 export default function Component() {
   const [todos, setTodos] = useState<Todo[]>(initialTodos)

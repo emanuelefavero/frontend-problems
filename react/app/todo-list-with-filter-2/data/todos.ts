@@ -1,8 +1,4 @@
-export type Todo = {
-  id: number
-  text: string
-  completed: boolean
-}
+import type { Todo } from '../types/todos'
 
 export const todos: Todo[] = [
   { id: 1, text: 'Buy groceries', completed: false },
