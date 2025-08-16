@@ -2,18 +2,16 @@
 
 import { useId, useState } from 'react'
 import { users as initialUsers } from '../data/users'
-import type { User } from '../types/users'
 
 export default function Component() {
-  const [users] = useState<User[]>(initialUsers)
   const [input, setInput] = useState('')
   const searchUsersId = useId()
 
-  const filteredUsers = users.filter((user) =>
+  const filteredUsers = initialUsers.filter((user) =>
     user.name.toLowerCase().includes(input.toLowerCase()),
   )
 
-  if (!users) return null
+  if (!initialUsers) return null
 
   return (
     <>
