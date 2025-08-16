@@ -72,6 +72,9 @@ export default function Home() {
         <li>
           <Link href='/portals'>Portals</Link>
         </li>
+        <li>
+          <Link href='/searchable-user-list'>Searchable User List</Link>
+        </li>
       </ul>
     </>
   )
