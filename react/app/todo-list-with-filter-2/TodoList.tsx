@@ -15,14 +15,12 @@ export default function Component() {
   })
 
   const toggleTodo = (id: number) => {
-    setTodos(
-      todos.map((todo) => {
-        if (todo.id === id)
-          return {
-            ...todo,
-            completed: !todo.completed,
-          }
-        else return todo
+    setTodos((prev) =>
+      prev.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, completed: !todo.completed }
+        }
+        return todo
       }),
     )
   }
