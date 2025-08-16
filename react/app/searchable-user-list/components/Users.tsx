@@ -22,7 +22,9 @@ export default function Component() {
 
   return (
     <>
-      <label htmlFor={searchUserId}></label>
+      <label htmlFor={searchUserId} className='sr-only'>
+        Search User
+      </label>
       <input
         type='text'
         placeholder='Search User'
@@ -31,7 +33,7 @@ export default function Component() {
         value={input}
       />
 
-      <ul>
+      <ul className='p-2'>
         {users.map((user) => (
           <li key={user.id}>{user.name}</li>
         ))}
