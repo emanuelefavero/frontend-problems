@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import TodoFilter from './TodoFilter'
 import { todos as initialTodos } from './data/todos'
 import type { Filter, Todo } from './types/todos'
 
@@ -31,26 +32,7 @@ export default function Component() {
       <h2 className='mb-4 text-2xl font-semibold'>Todo List</h2>
 
       {/* Filter buttons */}
-      <div className='mb-4 flex gap-2'>
-        <button
-          onClick={() => setFilter('all')}
-          className={`${filter === 'all' ? 'bg-green-500' : ''}`}
-        >
-          All
-        </button>
-        <button
-          onClick={() => setFilter('completed')}
-          className={`${filter === 'completed' ? 'bg-green-500' : ''}`}
-        >
-          Completed
-        </button>
-        <button
-          onClick={() => setFilter('incomplete')}
-          className={`${filter === 'incomplete' ? 'bg-green-500' : ''}`}
-        >
-          Incomplete
-        </button>
-      </div>
+      <TodoFilter filter={filter} setFilter={setFilter} />
 
       {/* Todos */}
       <ul>
