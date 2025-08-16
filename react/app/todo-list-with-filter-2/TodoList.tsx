@@ -2,19 +2,28 @@
 
 import { useState } from 'react'
 import TodoFilter from './TodoFilter'
+import TodoItem from './TodoItem'
 import { todos as initialTodos } from './data/todos'
 import type { Filter, Todo } from './types/todos'
 
 export default function Component() {
   const [todos, setTodos] = useState<Todo[]>(initialTodos)
   const [filter, setFilter] = useState<Filter>('all')
+
+  // Calculate filtered todos based on the selected filter
   const filteredTodos = todos.filter((todo) => {
-    if (filter === 'completed') return todo.completed
-    else if (filter === 'incomplete') return !todo.completed
-    else return todo
+    switch (filter) {
+      case 'completed':
+        return todo.completed
+      case 'incomplete':
+        return !todo.completed
+      default:
+        return true
+    }
   })
 
-  const toggleTodo = (id: number) => {
+  // Handle toggling a todo's completion status
+  const handleToggleTodo = (id: number) => {
     setTodos((prev) =>
       prev.map((todo) => {
         if (todo.id === id) {
@@ -37,21 +46,11 @@ export default function Component() {
       {/* Todos */}
       <ul>
         {filteredTodos.map((todo: Todo) => (
-          <li key={`todo-${todo.id}`}>
-            <button
-              onClick={() => toggleTodo(todo.id)}
-              className='bg-transparent'
-            >
-              <span className={`${todo.completed ? 'text-green-500' : ''}`}>
-                {todo.completed ? '✔︎' : '▫️'}
-              </span>
-              <span
-                className={`${todo.completed ? 'text-gray-500 line-through' : ''}`}
-              >
-                {todo.text}
-              </span>
-            </button>
-          </li>
+          <TodoItem
+            key={`todo-${todo.id}`}
+            todo={todo}
+            onToggleTodo={handleToggleTodo}
+          />
         ))}
       </ul>
     </>
