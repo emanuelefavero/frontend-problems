@@ -5,19 +5,13 @@ import { users as initialUsers } from '../data/users'
 import type { User } from '../types/users'
 
 export default function Component() {
-  const [users, setUsers] = useState<User[]>(initialUsers)
+  const [users] = useState<User[]>(initialUsers)
   const [input, setInput] = useState('')
   const searchUsersId = useId()
 
-  const handleSearchUsers = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.toLowerCase()
-    setInput(value)
-
-    // Update the user list based on the search input
-    setUsers(
-      initialUsers.filter((user) => user.name.toLowerCase().includes(value)),
-    )
-  }
+  const filteredUsers = users.filter((user) =>
+    user.name.toLowerCase().includes(input.toLowerCase()),
+  )
 
   if (!users) return null
 
@@ -30,12 +24,12 @@ export default function Component() {
         type='text'
         placeholder='Search Users'
         id={searchUsersId}
-        onChange={handleSearchUsers}
+        onChange={(e) => setInput(e.target.value.trim())}
         value={input}
       />
 
       <ul className='p-2'>
-        {users.map((user) => (
+        {filteredUsers.map((user) => (
           <li key={user.id}>{user.name}</li>
         ))}
       </ul>
