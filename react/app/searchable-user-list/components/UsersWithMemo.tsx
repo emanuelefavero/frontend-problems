@@ -1,24 +1,24 @@
 'use client'
 
-import { useId, useState } from 'react'
+import { useId, useMemo, useState } from 'react'
 import { users as initialUsers } from '../data/users'
-
-// NOTE: If we want to be able to add/remove users, we need to manage the user list in state (right now it's static)
 
 export default function Component() {
   const [input, setInput] = useState('')
   const searchUsersId = useId()
 
-  // Filter users with derived state from input (no need for a state variable)
-  const filteredUsers = initialUsers.filter((user) =>
-    user.name.toLowerCase().includes(input.toLowerCase()),
-  )
+  // TIP: In this case, useMemo could help when a parent component forces a re-render of this component by memoizing the filtered user list.
+  const filteredUsers = useMemo(() => {
+    return initialUsers.filter((user) =>
+      user.name.toLowerCase().includes(input.toLowerCase()),
+    )
+  }, [input])
 
   if (!initialUsers) return null
 
   return (
     <>
-      <h2 className='mb-2 text-xl font-bold'>Users</h2>
+      <h2 className='mb-2 text-xl font-bold'>Users with Memo</h2>
 
       <label htmlFor={searchUsersId} className='sr-only'>
         Search Users
