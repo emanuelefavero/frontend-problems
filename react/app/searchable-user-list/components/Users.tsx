@@ -3,6 +3,8 @@
 import { useId, useState } from 'react'
 import { users as initialUsers } from '../data/users'
 
+// NOTE: If we want to be able to add/remove users, we need to manage the user list in state (right now it's static)
+
 export default function Component() {
   const [input, setInput] = useState('')
   const searchUsersId = useId()
