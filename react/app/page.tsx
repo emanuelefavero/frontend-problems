@@ -75,6 +75,9 @@ export default function Home() {
         <li>
           <Link href='/searchable-user-list'>Searchable User List</Link>
         </li>
+        <li>
+          <Link href='/expandable-faq-component'>Expandable FAQ Component</Link>
+        </li>
       </ul>
     </>
   )
