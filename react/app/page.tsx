@@ -78,6 +78,9 @@ export default function Home() {
         <li>
           <Link href='/expandable-faq-component'>Expandable FAQ Component</Link>
         </li>
+        <li>
+          <Link href='/remove-duplicate-items'>Remove Duplicate Items</Link>
+        </li>
       </ul>
     </>
   )
