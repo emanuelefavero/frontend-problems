@@ -10,6 +10,11 @@ export default function Page() {
             Client Components
           </Link>
         </li>
+        <li>
+          <Link href='/fetch-from-api/server-components'>
+            Server Components
+          </Link>
+        </li>
       </ul>
     </>
   )
