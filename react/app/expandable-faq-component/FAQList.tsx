@@ -49,12 +49,17 @@ export default function FAQList() {
               onClick={() => handleClick(faq.id)}
               className='cursor-pointer select-none px-4 py-2 font-semibold'
             >
-              {faq.question}
+              {faq.question}{' '}
+              <span
+                className={`duration-250 inline-block transition-all ease-in ${openId === faq.id ? 'rotate-90 opacity-100' : 'opacity-60'}`}
+              >
+                {'>'}
+              </span>
             </div>
 
             {/* Answer */}
             <div
-              className={`duration-250 h-0 w-full overflow-hidden bg-slate-500/10 px-4 transition-all ${openId === faq.id ? 'h-fit py-2' : 'h-0 py-0'}`}
+              className={`duration-250 w-full overflow-hidden bg-slate-500/10 px-4 transition-all ease-in ${openId === faq.id ? 'h-fit py-2 opacity-100' : 'h-0 py-0 opacity-0'}`}
             >
               {faq.answer}
             </div>
