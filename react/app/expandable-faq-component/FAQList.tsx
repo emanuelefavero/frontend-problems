@@ -53,11 +53,11 @@ export default function FAQList() {
             </div>
 
             {/* Answer */}
-            {openId === faq.id && (
-              <div className='w-full bg-slate-500/10 px-4 py-2'>
-                {faq.answer}
-              </div>
-            )}
+            <div
+              className={`duration-250 h-0 w-full overflow-hidden bg-slate-500/10 px-4 transition-all ${openId === faq.id ? 'h-fit py-2' : 'h-0 py-0'}`}
+            >
+              {faq.answer}
+            </div>
           </li>
         ))}
       </ul>
