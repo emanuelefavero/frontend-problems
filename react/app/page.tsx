@@ -81,6 +81,9 @@ export default function Home() {
         <li>
           <Link href='/remove-duplicate-items'>Remove Duplicate Items</Link>
         </li>
+        <li>
+          <Link href='/fetch-from-api'>Fetch from API</Link>
+        </li>
       </ul>
     </>
   )
