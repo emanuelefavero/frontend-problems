@@ -8,7 +8,7 @@ type Post = {
   body: string
 }
 
-export default function PostList() {
+export default function Component() {
   const [posts, setPosts] = useState<Post[]>([])
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
