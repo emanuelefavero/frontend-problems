@@ -17,9 +17,12 @@ export default function Component() {
     setLoading(true)
     setError(null)
 
+    // TIP: JSONPlaceholder also supports paged requests for pagination (the minimum number of posts per_page is 10)
+    // 'https://jsonplaceholder.typicode.com/posts?_page=1&_per_page=10'
+
     try {
       const response = await fetch(
-        'https://jsonplaceholder.typicode.com/posts?_limit=5',
+        'https://jsonplaceholder.typicode.com/posts?_limit=5&_start=0',
       )
       const data = await response.json()
       setPosts(data)
