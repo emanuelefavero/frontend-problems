@@ -59,18 +59,16 @@ export default function Component() {
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
-      {posts && (
-        <ul className='mb-4 max-w-prose'>
-          {posts.map((post) => (
-            <li key={post.id}>
-              <h2 className='text-xl font-semibold'>
-                {post.id} - {post.title}
-              </h2>
-              <p className='opacity-80'>{post.body}</p>
-            </li>
-          ))}
-        </ul>
-      )}
+      <ul className='mb-4 max-w-prose'>
+        {posts.map((post) => (
+          <li key={post.id}>
+            <h2 className='text-xl font-semibold'>
+              {post.id} - {post.title}
+            </h2>
+            <p className='opacity-80'>{post.body}</p>
+          </li>
+        ))}
+      </ul>
 
       {/* Pagination */}
       <div className='flex w-fit items-center justify-center gap-2'>
