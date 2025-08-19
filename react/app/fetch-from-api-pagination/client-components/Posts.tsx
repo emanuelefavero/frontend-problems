@@ -9,6 +9,8 @@ type Post = {
 }
 
 const POSTS_PER_PAGE = 5
+const TOTAL_POSTS = 100
+const totalPages = Math.ceil(TOTAL_POSTS / POSTS_PER_PAGE)
 
 export default function Component() {
   const [posts, setPosts] = useState<Post[]>([])
@@ -19,6 +21,7 @@ export default function Component() {
   const [page, setPage] = useState<number>(1)
   const offset = (page - 1) * POSTS_PER_PAGE
 
+  // TIP: The `useCallback` hook is used here so we can avoid putting the `fetchPosts` function inside the `useEffect` hook in case we want to also call it from a button click
   const fetchPosts = useCallback(async () => {
     setLoading(true)
     setError(null)
@@ -43,12 +46,21 @@ export default function Component() {
   return (
     <div>
       <h2 className='mb-4 text-2xl font-semibold'>Posts</h2>
+      <button
+        onClick={() => {
+          setPage(1) // Reset to the first page
+          fetchPosts()
+        }}
+        className='mb-4'
+      >
+        Refresh
+      </button>
 
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
       {posts && (
-        <ul className='max-w-prose'>
+        <ul className='mb-4 max-w-prose'>
           {posts.map((post) => (
             <li key={post.id}>
               <h2 className='text-xl font-semibold'>
@@ -61,13 +73,29 @@ export default function Component() {
       )}
 
       {/* Pagination */}
-      <button
-        onClick={() => {
-          setPage((prev) => prev + 1)
-        }}
-      >
-        Next page
-      </button>
+      <div className='flex w-fit items-center justify-center gap-2'>
+        <button
+          onClick={() => {
+            setPage((prev) => (prev === 1 ? 1 : prev - 1))
+          }}
+          disabled={page === 1}
+          className='disabled:pointer-events-none disabled:opacity-50'
+        >
+          Previous page
+        </button>
+        <div>
+          Page {page} of {totalPages}
+        </div>
+        <button
+          onClick={() => {
+            setPage((prev) => (prev === totalPages ? totalPages : prev + 1))
+          }}
+          disabled={page === totalPages}
+          className='disabled:pointer-events-none disabled:opacity-50'
+        >
+          Next page
+        </button>
+      </div>
     </div>
   )
 }
