@@ -48,16 +48,6 @@ export default function Component() {
     <div>
       <h2 className='mb-4 text-2xl font-semibold'>Posts</h2>
 
-      <button
-        onClick={() => {
-          setPage(1) // Reset to the first page
-          // TIP: Since the `fetchPosts` function uses the `offset` variable that depends on the `page` state, simply updating the `page` state will trigger the `useEffect` to call `fetchPosts` again so no need to call `fetchPosts` here
-        }}
-        className='mb-4'
-      >
-        🔄
-      </button>
-
       {/* Loading and Error States */}
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
