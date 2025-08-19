@@ -72,6 +72,17 @@ export default function Component() {
 
       {/* Pagination */}
       <div className='flex w-fit items-center justify-center gap-2'>
+        {/* First Page */}
+        <button
+          onClick={() => {
+            setPage(1)
+          }}
+          disabled={page === 1}
+          className='disabled:pointer-events-none disabled:opacity-50'
+        >
+          First page
+        </button>
+
         <button
           onClick={() => {
             setPage((prev) => (prev === 1 ? 1 : prev - 1))
@@ -92,6 +103,17 @@ export default function Component() {
           className='disabled:pointer-events-none disabled:opacity-50'
         >
           Next page
+        </button>
+
+        {/* Last Page */}
+        <button
+          onClick={() => {
+            setPage(totalPages)
+          }}
+          disabled={page === totalPages}
+          className='disabled:pointer-events-none disabled:opacity-50'
+        >
+          Last page
         </button>
       </div>
     </div>
