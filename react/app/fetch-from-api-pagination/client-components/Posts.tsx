@@ -49,7 +49,7 @@ export default function Component() {
       <button
         onClick={() => {
           setPage(1) // Reset to the first page
-          fetchPosts()
+          // TIP: Since the `fetchPosts` function uses the `offset` variable that depends on the `page` state, simply updating the `page` state will trigger the `useEffect` to call `fetchPosts` again so no need to call `fetchPosts` here
         }}
         className='mb-4'
       >
