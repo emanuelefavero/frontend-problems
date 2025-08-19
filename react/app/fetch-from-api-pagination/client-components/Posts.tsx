@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useCallback, useEffect, useState } from 'react'
+import Pagination from './Pagination'
 
 type Post = {
   id: number
@@ -46,6 +47,7 @@ export default function Component() {
   return (
     <div>
       <h2 className='mb-4 text-2xl font-semibold'>Posts</h2>
+
       <button
         onClick={() => {
           setPage(1) // Reset to the first page
@@ -53,69 +55,31 @@ export default function Component() {
         }}
         className='mb-4'
       >
-        Refresh
+        🔄
       </button>
 
+      {/* Loading and Error States */}
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
-      <ul className='mb-4 max-w-prose'>
-        {posts.map((post) => (
-          <li key={post.id}>
-            <h2 className='text-xl font-semibold'>
-              {post.id} - {post.title}
-            </h2>
-            <p className='opacity-80'>{post.body}</p>
-          </li>
-        ))}
-      </ul>
+      {posts.length > 0 && (
+        <>
+          {/* Posts */}
+          <ul className='mb-4 max-w-prose'>
+            {posts.map((post) => (
+              <li key={post.id}>
+                <h2 className='text-xl font-semibold'>
+                  {post.id} - {post.title}
+                </h2>
+                <p className='opacity-80'>{post.body}</p>
+              </li>
+            ))}
+          </ul>
 
-      {/* Pagination */}
-      <div className='flex w-fit items-center justify-center gap-2'>
-        {/* First Page */}
-        <button
-          onClick={() => {
-            setPage(1)
-          }}
-          disabled={page === 1}
-          className='disabled:pointer-events-none disabled:opacity-50'
-        >
-          1
-        </button>
-
-        <button
-          onClick={() => {
-            setPage((prev) => (prev === 1 ? 1 : prev - 1))
-          }}
-          disabled={page === 1}
-          className='disabled:pointer-events-none disabled:opacity-50'
-        >
-          Prev
-        </button>
-        <div>
-          Page {page} of {totalPages}
-        </div>
-        <button
-          onClick={() => {
-            setPage((prev) => (prev === totalPages ? totalPages : prev + 1))
-          }}
-          disabled={page === totalPages}
-          className='disabled:pointer-events-none disabled:opacity-50'
-        >
-          Next
-        </button>
-
-        {/* Last Page */}
-        <button
-          onClick={() => {
-            setPage(totalPages)
-          }}
-          disabled={page === totalPages}
-          className='disabled:pointer-events-none disabled:opacity-50'
-        >
-          {totalPages}
-        </button>
-      </div>
+          {/* Pagination */}
+          <Pagination page={page} setPage={setPage} totalPages={totalPages} />
+        </>
+      )}
     </div>
   )
 }
