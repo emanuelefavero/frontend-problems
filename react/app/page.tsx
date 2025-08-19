@@ -84,6 +84,11 @@ export default function Home() {
         <li>
           <Link href='/fetch-from-api'>Fetch from API</Link>
         </li>
+        <li>
+          <Link href='/fetch-from-api-pagination'>
+            Fetch from API - Pagination
+          </Link>
+        </li>
       </ul>
     </>
   )
