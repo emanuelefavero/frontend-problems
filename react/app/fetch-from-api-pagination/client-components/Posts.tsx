@@ -80,7 +80,7 @@ export default function Component() {
           disabled={page === 1}
           className='disabled:pointer-events-none disabled:opacity-50'
         >
-          First page
+          1
         </button>
 
         <button
@@ -90,7 +90,7 @@ export default function Component() {
           disabled={page === 1}
           className='disabled:pointer-events-none disabled:opacity-50'
         >
-          Previous page
+          Prev
         </button>
         <div>
           Page {page} of {totalPages}
@@ -102,7 +102,7 @@ export default function Component() {
           disabled={page === totalPages}
           className='disabled:pointer-events-none disabled:opacity-50'
         >
-          Next page
+          Next
         </button>
 
         {/* Last Page */}
@@ -113,7 +113,7 @@ export default function Component() {
           disabled={page === totalPages}
           className='disabled:pointer-events-none disabled:opacity-50'
         >
-          Last page
+          {totalPages}
         </button>
       </div>
     </div>
