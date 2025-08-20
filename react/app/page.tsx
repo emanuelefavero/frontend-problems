@@ -5,7 +5,7 @@ export default function Home() {
     <>
       <h1>Home</h1>
 
-      <ul>
+      <ul className='p-4'>
         <li>
           <Link href='/test'>Test page</Link>
         </li>
@@ -91,6 +91,9 @@ export default function Home() {
           <Link href='/fetch-from-api-pagination'>
             Fetch from API - Pagination
           </Link>
+        </li>
+        <li>
+          <Link href='/focus'>Focus</Link>
         </li>
       </ul>
     </>
