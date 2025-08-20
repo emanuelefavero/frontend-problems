@@ -73,6 +73,9 @@ export default function Home() {
           <Link href='/portals'>Portals</Link>
         </li>
         <li>
+          <Link href='/search'>Search</Link>
+        </li>
+        <li>
           <Link href='/searchable-user-list'>Searchable User List</Link>
         </li>
         <li>
