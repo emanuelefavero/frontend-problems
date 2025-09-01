@@ -1,5 +1,6 @@
 'use client'
 
+import { cn } from '@/lib/utils'
 import { useState } from 'react'
 
 // * Tab Panel - a ui component that allows users to switch between different views or sections by clicking on tabs.
@@ -29,16 +30,22 @@ export default function Tabs() {
         role='tablist'
         aria-orientation='vertical'
         aria-label='Tabs'
-        className='h-full overflow-auto bg-red-500'
+        className='h-full max-w-[136px] overflow-y-auto overflow-x-hidden bg-slate-900'
       >
         {tabs.map((tab) => (
           <div
             key={`tab-${tab.id}`}
             role='tab'
             id={`tab-${tab.id}`}
+            title={tab.title}
             tabIndex={0}
             aria-selected={activeTab === tab.id}
-            className={`cursor-pointer px-6 py-8 text-sm font-semibold uppercase ${activeTab === tab.id && 'bg-green-500'}`}
+            className={cn(
+              'cursor-pointer truncate border-l-4 border-transparent px-6 py-8 text-sm font-semibold uppercase',
+              activeTab !== tab.id && 'text-slate-400',
+              activeTab === tab.id &&
+                'border-orange-400 bg-slate-800 text-orange-400',
+            )}
             onKeyDown={(e) => e.key === 'Enter' && setActiveTab(tab.id)}
             onClick={() => setActiveTab(tab.id)}
           >
