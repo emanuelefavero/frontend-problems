@@ -5,7 +5,12 @@ import { useState } from 'react'
 // * Tab Panel - a ui component that allows users to switch between different views or sections by clicking on tabs.
 
 const tabs = [
-  { id: 1, title: 'Home', content: 'Tab Content 1' },
+  {
+    id: 1,
+    title: 'Home',
+    content:
+      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo rerum voluptas deleniti dolore hic suscipit ducimus? Cum, vero officiis unde itaque suscipit fuga placeat recusandae ab, earum velit assumenda? Earum maxime ex nulla suscipit quidem, quisquam ipsum dolore quaerat beatae libero! Quo, numquam veritatis. Dolor, laboriosam, rerum facere necessitatibus vero sunt illo autem, tenetur temporibus ad cum delectus consequatur facilis modi incidunt. Exercitationem repudiandae amet placeat unde, suscipit in omnis magnam odit nostrum illo culpa quia aspernatur nesciunt architecto consequuntur labore illum, aut aliquam tempora soluta. Doloremque ipsa dicta libero voluptatibus, quam tempore delectus sint at corrupti dolor amet expedita molestiae facilis sed magni recusandae voluptatem quaerat quod ea culpa. Molestias omnis labore iure aspernatur distinctio, ab itaque blanditiis nisi? Nostrum provident error facilis velit aliquid tenetur autem hic nisi modi mollitia ut molestias culpa nam, quidem molestiae facere quisquam soluta. Sit in perspiciatis laborum aut, cum amet commodi officia deleniti dolor magni, vel corrupti accusantium eum repudiandae harum repellat blanditiis eius voluptatem temporibus. Sunt velit sit maxime cum laudantium dolore modi, exercitationem officiis perspiciatis ducimus error repudiandae pariatur tempora quos enim sapiente quo delectus consequatur nemo sint nobis iure beatae! Iste neque non hic deserunt officia ad architecto. Accusantium soluta quod adipisci sapiente repellat quaerat? Amet inventore veniam repudiandae quas placeat, autem distinctio porro similique sunt. Dolorum ipsum suscipit repudiandae, exercitationem esse iste error commodi rem hic recusandae qui nulla nihil assumenda officiis quam rerum autem, eveniet corporis enim aliquid, minima optio aut. Quod facilis ratione dolor repudiandae minus?',
+  },
   {
     id: 2,
     title: 'Profile',
@@ -19,12 +24,12 @@ export default function Tabs() {
   const [activeTab, setActiveTab] = useState(tabs[0].id)
 
   return (
-    <div className='grid grid-cols-[auto_1fr]'>
+    <div className='grid h-[336px] max-w-xl grid-cols-[auto_1fr]'>
       <nav
         role='tablist'
         aria-orientation='vertical'
         aria-label='Tabs'
-        className='bg-red-500'
+        className='h-full overflow-auto bg-red-500'
       >
         {tabs.map((tab) => (
           <div
@@ -33,7 +38,7 @@ export default function Tabs() {
             id={`tab-${tab.id}`}
             tabIndex={0}
             aria-selected={activeTab === tab.id}
-            className={`cursor-pointer ${activeTab === tab.id && 'bg-green-500'}`}
+            className={`cursor-pointer px-6 py-8 text-sm font-semibold uppercase ${activeTab === tab.id && 'bg-green-500'}`}
             onKeyDown={(e) => e.key === 'Enter' && setActiveTab(tab.id)}
             onClick={() => setActiveTab(tab.id)}
           >
@@ -42,7 +47,7 @@ export default function Tabs() {
         ))}
       </nav>
 
-      <div className='h-[300px] overflow-auto bg-blue-500'>
+      <div className='h-full overflow-auto bg-blue-500'>
         {tabs.map(
           (tab) =>
             activeTab === tab.id && (
@@ -53,6 +58,7 @@ export default function Tabs() {
                 aria-labelledby={`tab-${tab.id}`}
                 hidden={activeTab !== tab.id}
                 tabIndex={0}
+                className='p-4'
               >
                 {tab.content}
               </div>
