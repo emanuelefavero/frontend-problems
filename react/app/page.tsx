@@ -95,6 +95,9 @@ export default function Home() {
         <li>
           <Link href='/focus'>Focus</Link>
         </li>
+        <li>
+          <Link href='/tabbed-panel'>Tabbed Panel</Link>
+        </li>
       </ul>
     </>
   )
