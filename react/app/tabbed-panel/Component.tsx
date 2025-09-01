@@ -25,7 +25,7 @@ export default function Tabs() {
   const [activeTab, setActiveTab] = useState(tabs[0].id)
 
   return (
-    <div className='grid h-[336px] max-w-xl grid-cols-[auto_1fr] border border-slate-700 text-slate-700 shadow-md dark:text-slate-300'>
+    <div className='grid h-[336px] max-w-xl grid-cols-[auto_1fr] border border-slate-300 text-slate-700 shadow-md dark:border-slate-700 dark:text-slate-300'>
       <nav
         role='tablist'
         aria-orientation='vertical'
@@ -41,11 +41,11 @@ export default function Tabs() {
             tabIndex={0}
             aria-selected={activeTab === tab.id}
             className={cn(
-              'cursor-pointer truncate border-l-4 border-r-[1px] border-l-transparent border-r-slate-700 px-6 py-8 text-sm font-semibold uppercase transition duration-200 ease-in-out',
+              'cursor-pointer truncate border-l-4 border-r-[1px] border-l-transparent border-r-slate-300/75 px-6 py-8 text-sm font-semibold uppercase transition duration-200 ease-in-out dark:border-r-slate-700/75',
               activeTab !== tab.id &&
                 'text-slate-500 hover:bg-slate-300/30 dark:text-slate-400 dark:hover:bg-slate-800/30',
               activeTab === tab.id &&
-                'border-l-orange-600 border-r-transparent bg-slate-50 text-orange-600 dark:border-l-orange-400 dark:bg-slate-800 dark:text-orange-400',
+                'border-l-orange-600 border-r-transparent bg-slate-50 text-orange-600 dark:border-l-orange-400 dark:border-r-transparent dark:bg-slate-800 dark:text-orange-400',
             )}
             onKeyDown={(e) => e.key === 'Enter' && setActiveTab(tab.id)}
             onClick={() => setActiveTab(tab.id)}
