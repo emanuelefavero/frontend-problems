@@ -41,10 +41,10 @@ export default function Tabs() {
             tabIndex={0}
             aria-selected={activeTab === tab.id}
             className={cn(
-              'cursor-pointer truncate border-l-4 border-transparent px-6 py-8 text-sm font-semibold uppercase',
+              'cursor-pointer truncate border-l-4 border-r-[1px] border-l-transparent border-r-slate-700 px-6 py-8 text-sm font-semibold uppercase transition duration-200 ease-in-out',
               activeTab !== tab.id && 'text-slate-400 hover:bg-slate-800/30',
               activeTab === tab.id &&
-                'border-orange-400 bg-slate-800 text-orange-400',
+                'border-l-orange-400 border-r-transparent bg-slate-800 text-orange-400',
             )}
             onKeyDown={(e) => e.key === 'Enter' && setActiveTab(tab.id)}
             onClick={() => setActiveTab(tab.id)}
@@ -54,7 +54,7 @@ export default function Tabs() {
         ))}
       </nav>
 
-      <div className='h-full overflow-auto bg-blue-500'>
+      <div className='h-full overflow-auto bg-slate-800'>
         {tabs.map(
           (tab) =>
             activeTab === tab.id && (
