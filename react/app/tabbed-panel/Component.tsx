@@ -25,7 +25,7 @@ export default function Tabs() {
   const [activeTab, setActiveTab] = useState(tabs[0].id)
 
   return (
-    <div className='grid h-[336px] max-w-xl grid-cols-[auto_1fr]'>
+    <div className='grid h-[336px] max-w-xl grid-cols-[auto_1fr] border border-slate-700 text-slate-300'>
       <nav
         role='tablist'
         aria-orientation='vertical'
