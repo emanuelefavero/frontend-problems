@@ -42,7 +42,7 @@ export default function Tabs() {
             aria-selected={activeTab === tab.id}
             className={cn(
               'cursor-pointer truncate border-l-4 border-transparent px-6 py-8 text-sm font-semibold uppercase',
-              activeTab !== tab.id && 'text-slate-400',
+              activeTab !== tab.id && 'text-slate-400 hover:bg-slate-800/30',
               activeTab === tab.id &&
                 'border-orange-400 bg-slate-800 text-orange-400',
             )}
