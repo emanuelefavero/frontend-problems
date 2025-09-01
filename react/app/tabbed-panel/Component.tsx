@@ -20,12 +20,21 @@ export default function Tabs() {
 
   return (
     <div className='grid grid-cols-[auto_1fr]'>
-      <nav className='bg-red-500'>
+      <nav
+        role='tablist'
+        aria-orientation='vertical'
+        aria-label='Tabs'
+        className='bg-red-500'
+      >
         {tabs.map((tab) => (
           <div
-            role='button'
-            key={`tab-title-${tab.id}`}
+            key={`tab-${tab.id}`}
+            role='tab'
+            id={`tab-${tab.id}`}
+            tabIndex={0}
+            aria-selected={activeTab === tab.id}
             className={`cursor-pointer ${activeTab === tab.id && 'bg-green-500'}`}
+            onKeyDown={(e) => e.key === 'Enter' && setActiveTab(tab.id)}
             onClick={() => setActiveTab(tab.id)}
           >
             {tab.title}
@@ -37,7 +46,16 @@ export default function Tabs() {
         {tabs.map(
           (tab) =>
             activeTab === tab.id && (
-              <div key={`tab-content-${tab.id}`}>{tab.content}</div>
+              <div
+                key={`tab-panel-${tab.id}`}
+                role='tabpanel'
+                id={`tab-panel-${tab.id}`}
+                aria-labelledby={`tab-${tab.id}`}
+                hidden={activeTab !== tab.id}
+                tabIndex={0}
+              >
+                {tab.content}
+              </div>
             ),
         )}
       </div>
