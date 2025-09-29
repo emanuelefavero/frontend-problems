@@ -16,6 +16,9 @@ export default function Home() {
           <Link href='/use-timeout'>useTimeout</Link>
         </li>
         <li>
+          <Link href='/timeout'>Timeout</Link>
+        </li>
+        <li>
           <Link href='/counter'>Counter</Link>
         </li>
         <li>
