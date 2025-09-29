@@ -19,6 +19,9 @@ export default function Home() {
           <Link href='/counter'>Counter</Link>
         </li>
         <li>
+          <Link href='/counter-with-step'>Counter with step</Link>
+        </li>
+        <li>
           <Link href='/use-is-first-render'>useIsFirstRender</Link>
         </li>
         <li>
