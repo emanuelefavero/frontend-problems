@@ -6,7 +6,7 @@ export default function Page() {
     <>
       <h1>Debounce and Throttle</h1>
 
-      <div>
+      <div className='flex flex-col gap-2'>
         <Debounce />
         <Throttle />
       </div>
