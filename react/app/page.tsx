@@ -107,6 +107,9 @@ export default function Home() {
         <li>
           <Link href='/tabbed-panel'>Tabbed Panel</Link>
         </li>
+        <li>
+          <Link href='/carousel'>Carousel</Link>
+        </li>
       </ul>
     </>
   )
