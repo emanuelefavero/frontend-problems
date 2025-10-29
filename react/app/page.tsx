@@ -110,6 +110,9 @@ export default function Home() {
         <li>
           <Link href='/carousel'>Carousel</Link>
         </li>
+        <li>
+          <Link href='/use-is-mounted'>Use Is Mounted</Link>
+        </li>
       </ul>
     </>
   )
